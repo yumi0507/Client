@@ -8,16 +8,47 @@ namespace bombgame.Player
 {
     public class player
     {
-        public int id;
-        public string name;
-        public bool is_alive = true;
+        private int id;
+        private string name;
+        private bool is_alive;
 
         public int pos_x;
         public int pos_y;
-        public bool valid_pos;
+        private bool valid_pos;
 
-        public int bomb_hold = 4;
+        private int bomb_hold;
+        private List<string> bomb_location;
 
+        public player(string name)
+        {
+            this.name = name;
+            is_alive = true;
+            bomb_hold = 4;
+            bomb_location = new List<string>();
+        }
+
+        public int bomb { get { return bomb_hold; } }
+
+        public void GameSet(int index, int x, int y)
+        {
+            id = index;
+            pos_x = x;
+            pos_y = y;
+        }
+
+        public void SetBomb(int x, int y)
+        {
+            bomb_location.Add(x.ToString());
+            bomb_location.Add(y.ToString());
+            bomb_hold--;
+        }
+
+        public void NewRoundSet()
+        {
+            bomb_location.Clear();
+        }
+
+        #region Position //每局起始位置由server發送
         public int Pos_x
         {
             set
@@ -26,6 +57,7 @@ namespace bombgame.Player
                 if (id % 2 == 0) { pos_x = 5; }
             }
         }
+
         public int Pos_y
         {
             set
@@ -44,6 +76,7 @@ namespace bombgame.Player
                 return false;
             }
         }
+        #endregion
 
     }
 
