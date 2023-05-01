@@ -10,33 +10,33 @@ namespace bombgame
     {
         int timeleft;
         int round;
+        int ID;
         string Round = "Round ";
+        Connect connect;
         List<player> players;
-        player User;
+        //player User;
 
 
 
         public GameUI(Connect form)
         {
             InitializeComponent();
+            connect = form;
             round = 0;
+            ID = connect.player.ID;
             players = new List<player>();
         }
 
-        public void GameSet(string ID)
+        private void Round_Start(object sender, EventArgs e)
         {
-            User = new player(ID);
-        }
-
-        private void Round_Load(object sender, EventArgs e)
-        {
+            round++;
+            label1.Text = Round + round.ToString();
             timeleft = 30;
             label3.Text = "30";
             /* Timer ±Ò°Ê */
             timer1.Start();
-            round++;
-            label1.Text = Round + round.ToString();
 
+            /*
             if (players.Count > 2)
             {
                 label4.Text = players[0].bomb.ToString();
@@ -44,8 +44,7 @@ namespace bombgame
             }
             if (players.Count > 3) { label10.Text = players[2].bomb.ToString(); }
             if (players.Count > 4) { label9.Text = players[3].bomb.ToString(); }
-
-
+            */
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -62,6 +61,16 @@ namespace bombgame
             }
         }
 
+        private void Bomb_appear()
+        {
+            while (true)
+            {
+                if (players[ID].bomb != 4)
+                {
+
+                }
+            }
+        }
     }
 }
 
