@@ -1,5 +1,4 @@
 ﻿using bombgame.Player;
-using bombgame.Map;
 using bombgame;
 using System;
 using System.Collections.Generic;
@@ -14,7 +13,7 @@ namespace bombgame.Move
     {
         player pr;
 
-        public Move(player pr, map mp)
+        public Move(player pr)
         {
             this.pr = pr;
         }
