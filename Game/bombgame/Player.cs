@@ -14,7 +14,6 @@ namespace bombgame.Player
 
         public int pos_x;
         public int pos_y;
-        private bool valid_pos;
 
         private int bomb_hold;
         private List<string> bomb_location;
@@ -47,36 +46,6 @@ namespace bombgame.Player
         {
             bomb_location.Clear();
         }
-
-        #region Position //每局起始位置由server發送
-        public int Pos_x
-        {
-            set
-            {
-                if (id % 2 == 1) { pos_x = 0; }
-                if (id % 2 == 0) { pos_x = 5; }
-            }
-        }
-
-        public int Pos_y
-        {
-            set
-            {
-                if (id / 3 == 0) { pos_y = 0; }
-                if (id / 3 == 1) { pos_y = 5; }
-            }
-        }
-
-        public bool Valid_pos
-        {
-            get
-            {
-                if (pos_x <= 5 && pos_x >= 0 && pos_y <= 5 && pos_y >= 0)
-                { return true; }
-                return false;
-            }
-        }
-        #endregion
 
     }
 

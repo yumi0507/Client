@@ -1,5 +1,4 @@
 ﻿using bombgame.Player;
-using bombgame.Map;
 using bombgame;
 using System;
 using System.Collections.Generic;
@@ -13,12 +12,10 @@ namespace bombgame.Move
     public class Move
     {
         player pr;
-        map mp;
 
-        public Move(player pr, map mp)
+        public Move(player pr)
         {
             this.pr = pr;
-            this.mp = mp;
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
