@@ -67,9 +67,17 @@ namespace bombgame
             {
                 if (players[ID].bomb != 4)
                 {
-
+                    for (int i = 0; i < players[ID].bomb; i += 2)
+                    {
+                        //  
+                    }
                 }
             }
+        }
+
+        private void GameUI_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
