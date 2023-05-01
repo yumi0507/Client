@@ -7,15 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using bombgame.Player;
 
 namespace bombgame
 {
     public partial class Form2 : Form
     {
+        string name;
         public Form2()
         {
             InitializeComponent();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            name = new string(textBox1.Text);
+        }
     }
 }
