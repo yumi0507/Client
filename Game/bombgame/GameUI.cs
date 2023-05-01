@@ -75,17 +75,7 @@ namespace bombgame
             }
         }
 
-        private void pictureBox86_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox40_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox116_Click(object sender, EventArgs e)
+        private void GameUI_Load(object sender, EventArgs e)
         {
 
         }
