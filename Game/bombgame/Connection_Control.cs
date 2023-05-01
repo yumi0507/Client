@@ -10,10 +10,10 @@ namespace bombgame
     public  class Connection_Control
     {
         public TcpClient Client;
-        Connect connect;
-        public Connection_Control(TcpClient tcpClient,Connect form)
+        //Connect connect;
+        public Connection_Control(TcpClient tcpClient/*,Connect form*/)
         {
-            connect = form;
+            //connect = form;
             Client = tcpClient;
         }
         public void SenttoServer(string message)
@@ -23,11 +23,11 @@ namespace bombgame
             {
                 byte[] data = Encoding.UTF8.GetBytes(message);
                 networkStream.Write(data);
-                connect.ADD_TO_LOG(message);
+                //connect.ADD_TO_LOG(message);
             }
             else
             {
-                connect.ADD_TO_LOG("Fail to send");
+                //connect.ADD_TO_LOG("Fail to send");
             }
         }
     }

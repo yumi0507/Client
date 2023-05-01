@@ -21,6 +21,7 @@ namespace bombgame
         public GameUI(Connect form)
         {
             InitializeComponent();
+            connect = new Connect();
             connect = form;
             round = 0;
             ID = connect.player.ID;

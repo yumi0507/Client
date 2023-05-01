@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.Net.Sockets;
+using bombgame;
 
 namespace bombgame.Player
 {
@@ -15,6 +16,7 @@ namespace bombgame.Player
         public int pos_x;
         public int pos_y;
         public TcpClient tcpClient;
+        public Connection_Control Connect;
 
         private int bomb_hold;
         private List<string> bomb_location;
@@ -22,6 +24,7 @@ namespace bombgame.Player
         public player(string ID, TcpClient client)
         {
             tcpClient = client;
+            Connect = new Connection_Control(tcpClient);
             id = ID;
             bomb_hold = 4;
             bomb_location = new List<string>();
@@ -50,7 +53,12 @@ namespace bombgame.Player
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-
+            /*
+              Instruction List
+                Start With A Alphabet Follwing By A Number For Specify Who Send This Message
+                  "P" for Place Bomb ex.Player 1 place bomb at (2,2) => P122
+                  "L" for Location ex. Player 2 is at (3,3) => L233
+            */
             while (true)
             {
                 if (e.KeyCode == Keys.W || e.KeyCode == Keys.Up)
