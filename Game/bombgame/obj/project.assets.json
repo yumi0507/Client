@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\miche\\Documents\\GitHub\\Client\\Game\\bombgame\\bombgame\\bombgame.csproj",
+      "projectUniqueName": "C:\\Users\\miche\\Documents\\GitHub\\Client\\Game\\bombgame\\bombgame.csproj",
       "projectName": "bombgame",
-      "projectPath": "C:\\Users\\miche\\Documents\\GitHub\\Client\\Game\\bombgame\\bombgame\\bombgame.csproj",
+      "projectPath": "C:\\Users\\miche\\Documents\\GitHub\\Client\\Game\\bombgame\\bombgame.csproj",
       "packagesPath": "C:\\Users\\miche\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\miche\\Documents\\GitHub\\Client\\Game\\bombgame\\bombgame\\obj\\",
+      "outputPath": "C:\\Users\\miche\\Documents\\GitHub\\Client\\Game\\bombgame\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
