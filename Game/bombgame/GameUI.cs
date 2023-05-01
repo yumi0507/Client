@@ -67,9 +67,27 @@ namespace bombgame
             {
                 if (players[ID].bomb != 4)
                 {
-
+                    for (int i = 0; i < players[ID].bomb; i += 2)
+                    {
+                        //  
+                    }
                 }
             }
+        }
+
+        private void pictureBox86_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox40_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox116_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Game",
+    "\\Game\\bombgame"
   ],
-  "SelectedNode": "\\bombgame.sln",
+  "SelectedNode": "\\Game\\bombgame\\Connect.cs",
   "PreviewInSolutionExplorer": false
 }
