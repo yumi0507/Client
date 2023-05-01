@@ -6,7 +6,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 
 namespace bombgame
 {
-    public partial class InGame : Form
+    public partial class GameUI : Form
     {
         int timeleft;
         int round;
@@ -16,15 +16,19 @@ namespace bombgame
 
 
 
-        public InGame(Connect form)
+        public GameUI(Connect form)
         {
             InitializeComponent();
             round = 0;
             players = new List<player>();
-            User = new player(form.name);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        public void GameSet(string ID)
+        {
+            User = new player(ID);
+        }
+
+        private void Round_Load(object sender, EventArgs e)
         {
             timeleft = 30;
             label3.Text = "30";

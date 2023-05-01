@@ -2,7 +2,7 @@
 
 namespace bombgame
 {
-    partial class InGame
+    partial class GameUI
     {
         /// <summary>
         ///  Required designer variable.
@@ -31,7 +31,7 @@ namespace bombgame
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InGame));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameUI));
             pictureBox2 = new PictureBox();
             pictureBox24 = new PictureBox();
             pictureBox1 = new PictureBox();

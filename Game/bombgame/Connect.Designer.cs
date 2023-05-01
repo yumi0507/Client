@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txbName = new TextBox();
             lblName = new Label();
             lblIPAddress = new Label();
             txbIPAddress = new TextBox();
@@ -37,23 +36,15 @@
             btnConnect = new Button();
             SuspendLayout();
             // 
-            // txbName
-            // 
-            txbName.Location = new Point(304, 210);
-            txbName.Margin = new Padding(4);
-            txbName.Name = "txbName";
-            txbName.Size = new Size(224, 38);
-            txbName.TabIndex = 0;
-            // 
             // lblName
             // 
             lblName.AutoSize = true;
-            lblName.Location = new Point(340, 164);
+            lblName.Location = new Point(270, 174);
             lblName.Margin = new Padding(4, 0, 4, 0);
             lblName.Name = "lblName";
-            lblName.Size = new Size(155, 30);
+            lblName.Size = new Size(296, 30);
             lblName.TabIndex = 1;
-            lblName.Text = "Player Name";
+            lblName.Text = "Welcome to Bomb Game";
             // 
             // lblIPAddress
             // 
@@ -113,7 +104,6 @@
             Controls.Add(txbIPAddress);
             Controls.Add(lblIPAddress);
             Controls.Add(lblName);
-            Controls.Add(txbName);
             Margin = new Padding(4);
             Name = "Connect";
             Text = "Form2";
@@ -122,8 +112,6 @@
         }
 
         #endregion
-
-        private TextBox txbName;
         private Label lblName;
         private Label lblIPAddress;
         private TextBox txbIPAddress;

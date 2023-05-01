@@ -3,25 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net;
+using System.Net.Sockets;
 
 namespace bombgame.Player
 {
     public class player
     {
-        private int id;
-        private string name;
-        private bool is_alive;
+        private string id;
 
         public int pos_x;
         public int pos_y;
+        public TcpClient tcpClient;
 
         private int bomb_hold;
         private List<string> bomb_location;
 
-        public player(string name)
+        public player(string ID, TcpClient client)
         {
-            this.name = name;
-            is_alive = true;
+            tcpClient = client;
+            id = ID;
             bomb_hold = 4;
             bomb_location = new List<string>();
         }
@@ -30,7 +31,6 @@ namespace bombgame.Player
 
         public void GameSet(int index, int x, int y)
         {
-            id = index;
             pos_x = x;
             pos_y = y;
         }

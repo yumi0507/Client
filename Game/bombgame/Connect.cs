@@ -14,7 +14,6 @@ namespace bombgame
 {
     public partial class Connect : Form
     {
-        public string name;
         private Socket ClientSocket;
 
         public Connect()
@@ -24,7 +23,7 @@ namespace bombgame
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            name = new string(txbName.Text);
+
         }
 
         public void CloseSocket()
