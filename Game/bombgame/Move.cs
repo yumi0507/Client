@@ -13,12 +13,10 @@ namespace bombgame.Move
     public class Move
     {
         player pr;
-        map mp;
 
         public Move(player pr, map mp)
         {
             this.pr = pr;
-            this.mp = mp;
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -55,7 +53,6 @@ namespace bombgame.Move
                     if (pr.bomb > 0)
                     {
                         pr.SetBomb(pr.pos_x, pr.pos_y);
-                        mp.map_state[pr.pos_y, pr.pos_x] = 1;
                     }
 
                 }
