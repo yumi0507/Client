@@ -11,13 +11,12 @@ namespace bombgame
         public Form1()
         {
             InitializeComponent();
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             timeleft = 30;
-            label2.Text = "30";
+            label3.Text = "30";
             /* Timer ±Ò°Ê */
             timer1.Start();
         }
@@ -36,7 +35,6 @@ namespace bombgame
                 label3.Text = "0";
             }
         }
-
 
     }
 }
