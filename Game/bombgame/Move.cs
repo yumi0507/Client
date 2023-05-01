@@ -55,7 +55,6 @@ namespace bombgame.Move
                     if (pr.bomb > 0)
                     {
                         pr.SetBomb(pr.pos_x, pr.pos_y);
-                        mp.map_state[pr.pos_y, pr.pos_x] = 1;
                     }
 
                 }
