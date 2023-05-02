@@ -2,6 +2,7 @@ using bombgame.Player;
 using System.Net.NetworkInformation;
 using System.Reflection.Emit;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 
 namespace bombgame
@@ -59,20 +60,35 @@ namespace bombgame
                 timer1.Stop();
                 label3.Text = "0";
             }
-        }
 
-        private void Bomb_appear()
-        {
-            while (true)
+            if (players[ID].bomb != 4)
             {
-                if (players[ID].bomb != 4)
+                for (int i = 0; i < players[ID].bomb; i += 2)
                 {
-                    for (int i = 0; i < players[ID].bomb; i += 2)
-                    {
-                        //  
-                    }
+                    //  bomb appear(i, i+1)
                 }
             }
+        }
+
+        public void OtherPlayerAction(string id, string state)
+        {
+            int num = Convert.ToInt32(id);
+            if (num == ID)
+            {
+                return;
+            }
+            
+            if (state[0] == '-')
+            {
+                // 顯示此玩家已淘汰
+                return;
+            }
+            int row = Convert.ToInt32(state[0]);
+            int col = Convert.ToInt32(state[2]);
+
+            players[num].pos_x = row;
+            players[num].pos_y = col;
+
         }
 
         private void GameUI_Load(object sender, EventArgs e)
