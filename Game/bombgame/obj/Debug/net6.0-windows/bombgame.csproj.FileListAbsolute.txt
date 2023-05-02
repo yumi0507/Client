@@ -65,3 +65,5 @@ C:\Users\miche\OneDrive\Documents\GitHub\Client\Game\bombgame\obj\Debug\net6.0-w
 C:\Users\miche\OneDrive\Documents\GitHub\Client\Game\bombgame\obj\Debug\net6.0-windows\bombgame.dll
 C:\Users\miche\OneDrive\Documents\GitHub\Client\Game\bombgame\obj\Debug\net6.0-windows\refint\bombgame.dll
 C:\Users\miche\OneDrive\Documents\GitHub\Client\Game\bombgame\obj\Debug\net6.0-windows\bombgame.pdb
+C:\Users\miche\Documents\GitHub\Client\Game\bombgame\obj\Debug\net6.0-windows\bombgame.Connect.resources
+C:\Users\miche\Documents\GitHub\Client\Game\bombgame\obj\Debug\net6.0-windows\bombgame.GameUI.resources
