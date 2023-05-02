@@ -36,16 +36,6 @@ namespace bombgame
             label3.Text = "30";
             /* Timer ±Ò°Ê */
             timer1.Start();
-
-            /*
-            if (players.Count > 2)
-            {
-                label4.Text = players[0].bomb.ToString();
-                label11.Text = players[1].bomb.ToString();
-            }
-            if (players.Count > 3) { label10.Text = players[2].bomb.ToString(); }
-            if (players.Count > 4) { label9.Text = players[3].bomb.ToString(); }
-            */
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -73,10 +63,7 @@ namespace bombgame
         public void OtherPlayerAction(string id, string state)
         {
             int num = Convert.ToInt32(id);
-            if (num == ID)
-            {
-                return;
-            }
+            if (num == ID) { return; }
             
             if (state[0] == '-')
             {
