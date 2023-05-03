@@ -18,12 +18,12 @@ namespace bombgame
         public TcpClient tcpClient;
         public Connection_Control connect;
         public player player;
-        public List<string> message_from_server;
+        public bool Start_From_Server = false;
+        Thread ClientHandler;
         public Connect()
         {
             InitializeComponent();
             tcpClient = new TcpClient();
-            message_from_server = new List<string>() ;
         }
 
         private void btnConnect_Click(object sender, EventArgs e)
@@ -34,9 +34,9 @@ namespace bombgame
                 ADD_TO_LOG("Connected to the Server");
                 connect = new Connection_Control(tcpClient,this);
                 player = new player(ReceiveFromServer(tcpClient),tcpClient);
-                Thread thread = new Thread(ClientHandle);
-                thread.IsBackground = true;
-                thread.Start(tcpClient);
+                ClientHandler = new Thread(ClientHandle);
+                ClientHandler.IsBackground = true;
+                ClientHandler.Start(tcpClient);
             }
             else
             {
@@ -44,7 +44,7 @@ namespace bombgame
             }
 
         }
-        public void ReceiveFromServer(TcpClient client)
+        public string ReceiveFromServer(TcpClient client)
         {
             NetworkStream networkStream = client.GetStream();
             string Message_From_Server;
@@ -57,20 +57,24 @@ namespace bombgame
                     if (bytes <= 0)
                     {
                         ADD_TO_LOG("Fail to Receive");
+                        return "F";
                     }
                     else
                     {
                         Message_From_Server = Encoding.UTF8.GetString(buffer, 0, bytes);
                         ADD_TO_LOG("Receive '" + Message_From_Server + "' from server ");
-                        message_from_server.Add(Message_From_Server);
+                        return (Message_From_Server);
                     }
                 }
             }
             catch (Exception ex)
             {
                 ADD_TO_LOG(ex.Message);
+                return "F";
             }
+            return "F";
         }
+
         public void ADD_TO_LOG(string message)
         {
             if (list_LOG.InvokeRequired)
@@ -118,6 +122,7 @@ namespace bombgame
         {
             GameUI gameUI = new GameUI(this);
             gameUI.Show();
+            ClientHandler = null;
             //this.Close();
         }
     }

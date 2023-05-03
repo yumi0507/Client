@@ -15,16 +15,22 @@ namespace bombgame.Player
         public int pos_x;
         public int pos_y;
         public TcpClient tcpClient;
+        public Connection_Control connect;
 
         private int bomb_hold;
-        private List<string> bomb_location;
+        private bool[,] bomb_location;
 
         public player(string ID, TcpClient client)
         {
             tcpClient = client;
             id = ID;
             bomb_hold = 4;
-            bomb_location = new List<string>();
+            connect = new Connection_Control(client);
+            for(int i = 0;  i < 6; i++)
+            {
+                for (int j = 0; j < 6; j++)
+                    bomb_location[i, j] = false;
+            }
         }
 
         public int ID { get { return int.Parse(id); } }
@@ -38,14 +44,18 @@ namespace bombgame.Player
 
         public void SetBomb()
         {
-            bomb_location.Add(pos_x.ToString());
-            bomb_location.Add(pos_y.ToString());
+            bomb_location[pos_x, pos_y] = true;
             bomb_hold--;
         }
 
         public void NewRoundSet()
         {
-            bomb_location.Clear();
+            for (int i = 0; i < 6; i++)
+            {
+                for (int j = 0; j < 6; j++)
+                    bomb_location[i, j] = false;
+            }
+            bomb_hold = 4;
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -73,7 +83,7 @@ namespace bombgame.Player
 
                 else if (e.KeyCode == Keys.A || e.KeyCode == Keys.Left)
                 {
-                    if (pos_x > 0)
+                    if (pos_x > 0) 
                         pos_x--;
                 }
 
@@ -82,7 +92,10 @@ namespace bombgame.Player
                     if (bomb > 0)
                     {
                         SetBomb();
+                        connect.SenttoServer("PB"+pos_x.ToString()+pos_y.ToString());
                     }
+                    else
+                        MessageBox.Show("You no Bombs");
 
                 }
             }

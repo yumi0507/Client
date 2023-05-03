@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.Net.Sockets;
+using System.Windows.Forms;
 namespace bombgame
 {
     public  class Connection_Control
@@ -16,18 +17,29 @@ namespace bombgame
             connect = form;
             Client = tcpClient;
         }
+        public Connection_Control(TcpClient tcp)
+        {
+            Client = tcp;
+        }
         public void SenttoServer(string message)
         {
             NetworkStream networkStream = Client.GetStream();
-            if (networkStream.CanWrite)
+            try
             {
-                byte[] data = Encoding.UTF8.GetBytes(message);
-                networkStream.Write(data);
-                connect.ADD_TO_LOG(message);
+                if (networkStream.CanWrite)
+                {
+                    byte[] data = Encoding.UTF8.GetBytes(message);
+                    networkStream.Write(data);
+                    //connect.ADD_TO_LOG(message);
+                }
+                else
+                {
+                    //connect.ADD_TO_LOG("Fail to send");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                connect.ADD_TO_LOG("Fail to send");
+                MessageBox.Show(ex.Message);   
             }
         }
     }

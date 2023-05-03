@@ -4,6 +4,10 @@ using System.Reflection.Emit;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
+using System.Net;
+using System.Net.Sockets;
+using System.Windows.Forms;
+using System.Text;
 
 namespace bombgame
 {
@@ -15,6 +19,7 @@ namespace bombgame
         string Round = "Round ";
         Connect connect;
         List<player> players;
+        bool GameStart = false;;
         //player User;
 
 
@@ -26,8 +31,22 @@ namespace bombgame
             round = 0;
             ID = connect.player.ID;
             players = new List<player>();
+            Thread thread = new Thread(ClientHandled_For_Game);
+            thread.IsBackground = true;
+            thread.Start(connect.tcpClient);
+
+            if (GameStart)
+                GameLoop();
+            else
+            {
+
+            }
         }
 
+        public void GameLoop()
+        {
+
+        }
         private void Round_Start(object sender, EventArgs e)
         {
             round++;
@@ -36,6 +55,34 @@ namespace bombgame
             label3.Text = "30";
             /* Timer ±Ò°Ê */
             timer1.Start();
+        }
+        public void ClientHandled_For_Game(Object clientobj)
+        {
+            TcpClient client = (TcpClient)clientobj;
+            NetworkStream networkStream = client.GetStream();
+            while (true)
+            {
+                try
+                {
+                    if (networkStream.CanRead)
+                    {
+                        byte[] buffer = new byte[2048];
+                        int BytesReaded = networkStream.Read(buffer, 0, buffer.Length);
+                        if (BytesReaded <= 0)
+                        {
+                        }
+                        else
+                        {
+                            string Message_From_Server = Encoding.UTF8.GetString(buffer, 0, BytesReaded);
+                        }
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error : " + ex.Message);
+                }
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
