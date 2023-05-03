@@ -26,6 +26,7 @@ namespace bombgame.Player
             id = ID;
             bomb_hold = 4;
             connect = new Connection_Control(client);
+            bomb_location = new bool[6, 6];
             for(int i = 0;  i < 6; i++)
             {
                 for (int j = 0; j < 6; j++)

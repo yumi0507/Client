@@ -19,7 +19,7 @@ namespace bombgame
         string Round = "Round ";
         Connect connect;
         List<player> players;
-        bool GameStart = false;;
+        bool GameStart = false;
         //player User;
 
 
