@@ -33,6 +33,12 @@ namespace bombgame.Player
                     bomb_location[i, j] = false;
             }
         }
+        public player(string ID)
+        {
+            id = ID; ;
+            int pos_x = 0;
+            int pos_y = 0;
+    }
 
         public int ID { get { return int.Parse(id); } }
         public int bomb { get { return bomb_hold; } }
@@ -68,6 +74,7 @@ namespace bombgame.Player
                 {
                     if (pos_y < 5)
                         pos_y++;
+                    
                 }
 
                 else if (e.KeyCode == Keys.S || e.KeyCode == Keys.Down)
@@ -96,7 +103,7 @@ namespace bombgame.Player
                         connect.SenttoServer("PB"+pos_x.ToString()+pos_y.ToString());
                     }
                     else
-                        MessageBox.Show("You no Bombs");
+                        MessageBox.Show("You have no Bombs left.");
 
                 }
             }

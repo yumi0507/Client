@@ -18,8 +18,10 @@ namespace bombgame
         int ID;
         string Round = "Round ";
         Connect connect;
-        List<player> players;
+        Dictionary<string,player> players;
         bool GameStart = false;
+        this.Control.Add(new Bomb(0,0));
+        this.Control.Add(new Explode(0,0));
         //player User;
 
 
@@ -30,7 +32,8 @@ namespace bombgame
             connect = form;
             round = 0;
             ID = connect.player.ID;
-            players = new List<player>();
+            players = new Dictionary<string, player>();
+            players.Add(connect.player.ID.ToString(), connect.player);
             Thread thread = new Thread(ClientHandled_For_Game);
             thread.IsBackground = true;
             thread.Start(connect.tcpClient);
@@ -45,7 +48,7 @@ namespace bombgame
 
         public void GameLoop()
         {
-
+            Round_Start();
         }
         private void Round_Start(object sender, EventArgs e)
         {
@@ -74,6 +77,54 @@ namespace bombgame
                         else
                         {
                             string Message_From_Server = Encoding.UTF8.GetString(buffer, 0, BytesReaded);
+                            string Command = Message_From_Server.Substring(0, 2);
+                            switch (Command)
+                            {
+                                case "GS":
+                                    GameStart = true;
+                                    break;
+                                case "NP":
+                                    {
+                                        string Player_ID = Message_From_Server.Substring(3, 1);
+                                        players.Add(Player_ID,new player(Player_ID));
+                                    }
+                                    break;
+                                case "PL":
+                                    {
+                                        string Player_ID = Message_From_Server.Substring(2, 1);
+                                        string x = Message_From_Server.Substring(3,1);
+                                        string y = Message_From_Server.Substring(4, 1);
+                                        players[Player_ID].pos_x = int.Parse(x);
+                                        players[Player_ID].pos_y = int.Parse(y);
+                                        
+                                    }
+                                    break;
+                                case "PO":
+                                    {
+                                        string Out_Player_ID = Message_From_Server.Substring(3, 1);
+                                        if (Out_Player_ID == ID.ToString())
+                                            MessageBox.Show("YOU ARE OUT");
+                                        else
+                                            MessageBox.Show("Player " + Out_Player_ID + " is OUT");
+                                        players.Remove(Out_Player_ID);
+                                    }
+                                    break;
+                                case "GE":
+                                    {
+                                        string Winner_ID = Message_From_Server.Substring(3, 1);
+                                        if (Winner_ID == ID.ToString())
+                                        {
+                                            MessageBox.Show("You are the Winner");
+                                            Close();
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Player" + Winner_ID + " is WINNER");
+                                            Close();
+                                        }
+                                    }
+                                    break;
+                            }
                         }
                     }
 
