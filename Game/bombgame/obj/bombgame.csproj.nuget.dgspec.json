@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< Updated upstream
     "C:\\Users\\user\\source\\repos\\Bomb_Client\\Game\\bombgame\\bombgame.csproj": {}
   },
   "projects": {
@@ -12,20 +13,38 @@
         "projectPath": "C:\\Users\\user\\source\\repos\\Bomb_Client\\Game\\bombgame\\bombgame.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\user\\source\\repos\\Bomb_Client\\Game\\bombgame\\obj\\",
+=======
+    "C:\\Users\\miche\\Documents\\GitHub\\Client\\Game\\bombgame\\bombgame.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\miche\\Documents\\GitHub\\Client\\Game\\bombgame\\bombgame.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\miche\\Documents\\GitHub\\Client\\Game\\bombgame\\bombgame.csproj",
+        "projectName": "bombgame",
+        "projectPath": "C:\\Users\\miche\\Documents\\GitHub\\Client\\Game\\bombgame\\bombgame.csproj",
+        "packagesPath": "C:\\Users\\miche\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\miche\\Documents\\GitHub\\Client\\Game\\bombgame\\obj\\",
+>>>>>>> Stashed changes
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+<<<<<<< Updated upstream
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+          "C:\\Users\\miche\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> Stashed changes
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0-windows7.0"
+          "net6.0-windows"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -62,7 +81,11 @@
               "privateAssets": "none"
             }
           },
+<<<<<<< Updated upstream
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.408\\RuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+>>>>>>> Stashed changes
         }
       }
     }
