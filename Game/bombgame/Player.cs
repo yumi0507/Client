@@ -55,7 +55,7 @@ namespace bombgame.Player
 
         public void SetImage()
         {
-            int Player_ID = Convert.ToInt32(id);
+            int Player_ID = int.Parse(id);
             switch (Player_ID)
             {
                 case 1:

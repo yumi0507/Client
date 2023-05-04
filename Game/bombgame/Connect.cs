@@ -28,20 +28,7 @@ namespace bombgame
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            tcpClient.Connect(IPAddress.Parse(txbIPAddress.Text), int.Parse(tbx_PORT.Text));
-            if (tcpClient.Connected)
-            {
-                ADD_TO_LOG("Connected to the Server");
-                connect = new Connection_Control(tcpClient, this);
-                player = new player(ReceiveFromServer(tcpClient), tcpClient);
-                ClientHandler = new Thread(ClientHandle);
-                ClientHandler.IsBackground = true;
-                ClientHandler.Start(tcpClient);
-            }
-            else
-            {
-                ADD_TO_LOG("Fail to Connect");
-            }
+            
 
         }
         public string ReceiveFromServer(TcpClient client)
@@ -124,6 +111,25 @@ namespace bombgame
             gameUI.Show();
             ClientHandler = null;
             //this.Close();
+        }
+
+        private void btnConnect_Click_1(object sender, EventArgs e)
+        {
+            tcpClient.Connect(IPAddress.Parse(txbIPAddress.Text), int.Parse(tbx_PORT.Text));
+            if (tcpClient.Connected)
+            {
+                ADD_TO_LOG("Connected to the Server");
+                connect = new Connection_Control(tcpClient, this);
+                string ID = ReceiveFromServer(tcpClient).Substring(2, 1);
+                player = new player(ID, tcpClient);
+                ClientHandler = new Thread(ClientHandle);
+                ClientHandler.IsBackground = true;
+                ClientHandler.Start(tcpClient);
+            }
+            else
+            {
+                ADD_TO_LOG("Fail to Connect");
+            }
         }
     }
 }

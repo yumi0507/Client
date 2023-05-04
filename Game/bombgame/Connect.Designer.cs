@@ -53,7 +53,7 @@
             // txbIPAddress
             // 
             this.txbIPAddress.Location = new System.Drawing.Point(152, 158);
-            this.txbIPAddress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbIPAddress.Margin = new System.Windows.Forms.Padding(2);
             this.txbIPAddress.Name = "txbIPAddress";
             this.txbIPAddress.Size = new System.Drawing.Size(114, 23);
             this.txbIPAddress.TabIndex = 3;
@@ -71,7 +71,7 @@
             // tbx_PORT
             // 
             this.tbx_PORT.Location = new System.Drawing.Point(152, 196);
-            this.tbx_PORT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbx_PORT.Margin = new System.Windows.Forms.Padding(2);
             this.tbx_PORT.Name = "tbx_PORT";
             this.tbx_PORT.Size = new System.Drawing.Size(114, 23);
             this.tbx_PORT.TabIndex = 5;
@@ -79,12 +79,13 @@
             // btnConnect
             // 
             this.btnConnect.Location = new System.Drawing.Point(310, 143);
-            this.btnConnect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnConnect.Margin = new System.Windows.Forms.Padding(2);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(89, 32);
             this.btnConnect.TabIndex = 6;
             this.btnConnect.Text = "Connect";
             this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click_1);
             // 
             // btn_GameStart
             // 
@@ -108,7 +109,7 @@
             // 
             this.pictureBox1.Image = global::bombgame.Properties.Resources.BombGame1;
             this.pictureBox1.Location = new System.Drawing.Point(99, 26);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(198, 128);
             this.pictureBox1.TabIndex = 9;
@@ -128,7 +129,7 @@
             this.Controls.Add(this.txbIPAddress);
             this.Controls.Add(this.lblIPAddress);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Connect";
             this.Text = "Connecting";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
