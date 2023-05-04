@@ -64,7 +64,7 @@ namespace bombgame
         {
             int num = Convert.ToInt32(id);
             if (num == ID) { return; }
-            
+
             if (state[0] == '-')
             {
                 // 顯示此玩家已淘汰
@@ -81,6 +81,15 @@ namespace bombgame
         private void GameUI_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox86_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox85_Click(object sender, EventArgs e)
+        {
         }
     }
 }
