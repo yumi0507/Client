@@ -137,6 +137,7 @@ namespace bombgame
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            string Player_ID = ID.ToString();
             if (timeleft > 0)
             {
                 timeleft = timeleft - 1;
@@ -148,9 +149,9 @@ namespace bombgame
                 LB_seconds.Text = "0";
             }
 
-            if (players[ID].bomb != 4)
+            if (players[Player_ID].bomb != 4)
             {
-                for (int i = 0; i < players[ID].bomb; i += 2)
+                for (int i = 0; i < players[Player_ID].bomb; i += 2)
                 {
                     //  bomb appear(i, i+1)
                 }
@@ -170,8 +171,8 @@ namespace bombgame
             int row = Convert.ToInt32(state[0]);
             int col = Convert.ToInt32(state[2]);
 
-            players[num].pos_x = row;
-            players[num].pos_y = col;
+            players[id].pos_x = row;
+            players[id].pos_y = col;
 
         }
 
