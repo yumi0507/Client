@@ -81,25 +81,33 @@ namespace bombgame.Player
         {
             pos_x = x;
             pos_y = y;
-            this.Location = new Point(Row[y], Col[x]);
+            this.Left = Row[y];
+            this.Top = Col[x];
+            // = new Point(Row[y], Col[x]);
             this.Visible = true;
         }
 
         public void SetBomb()
         {
             bomb_location[pos_x, pos_y] = true;
-            bomb_onTile.Add(new Bomb(Row[pos_y], Col[pos_x]));
+            bomb_onTile.Add(new Bomb(pos_y, pos_x));
             bomb_hold--;
+        }
+
+        public void ClearBomb()
+        {
+            foreach(Bomb bomb in bomb_onTile) { bomb.Invalidate(); }
+            bomb_onTile.Clear();
         }
 
         public void NewRoundSet()
         {
+            ClearBomb();
             for (int i = 0; i < 6; i++)
             {
                 for (int j = 0; j < 6; j++)
                     bomb_location[i, j] = false;
             }
-            bomb_onTile.Clear();
             bomb_hold = 4;
         }
 
