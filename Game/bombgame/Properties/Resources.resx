@@ -121,7 +121,52 @@
   <data name="grassCenter" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\grassCenter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BombGame" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BombGame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="alienPink_stand" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\alienPink_stand.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="alienYellow_walk2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\alienYellow_walk2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="alienGreen_stand" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\alienGreen_stand.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bomb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bomb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="alienPink_walk1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\alienPink_walk1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="alienYellow_walk1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\alienYellow_walk1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="alienGreen_walk2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\alienGreen_walk2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Explode" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Explode.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="alienPink_walk2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\alienPink_walk2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="alienBlue_walk2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\alienBlue_walk2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="alienGreen_walk1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\alienGreen_walk1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="alienBlue_walk1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\alienBlue_walk1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="alienYellow_stand" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\alienYellow_stand.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="alienBlue_stand" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\alienBlue_stand.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BombGame1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BombGame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -8,7 +8,7 @@ using System.Drawing;
 using System.Net;
 using System.Net.Sockets;
 
-namespace Picture
+namespace bombgame.Picture
 {
     abstract class picture : PictureBox
     {
@@ -16,7 +16,7 @@ namespace Picture
         {
             this.BackColor = Color.Transparent;
             this.Location = new Point(x, y);
-            this.Size = new Size(160,160);
+            this.Size = new Size(160, 160);
         }
     }
 
@@ -24,7 +24,7 @@ namespace Picture
     {
         public Bomb(int x, int y) : base(x, y)
         {
-            this.Image = Properties.Resources.Bomb; //  等圖片
+            this.Image = bombgame.Properties.Resources.Bomb;
         }
     }
 
@@ -32,7 +32,7 @@ namespace Picture
     {
         public Explode(int x, int y) : base(x, y)
         {
-            this.Image = Properties.Resources.Explode; //   等圖片
+            this.Image = bombgame.Properties.Resources.Explode;
         }
     }
 }

@@ -1,4 +1,5 @@
 using bombgame.Player;
+using bombgame.Picture;
 using System.Net.NetworkInformation;
 using System.Reflection.Emit;
 using System.Windows.Forms;
@@ -18,11 +19,8 @@ namespace bombgame
         int ID;
         string Round = "Round ";
         Connect connect;
-        Dictionary<string,player> players;
+        Dictionary<string, player> players;
         bool GameStart = false;
-        this.Control.Add(new Bomb(0,0));
-        this.Control.Add(new Explode(0,0));
-        //player User;
 
 
 
@@ -48,14 +46,15 @@ namespace bombgame
 
         public void GameLoop()
         {
-            Round_Start();
+
         }
+
         private void Round_Start(object sender, EventArgs e)
         {
             round++;
-            label1.Text = Round + round.ToString();
+            LB_round.Text = Round + round.ToString();
             timeleft = 30;
-            label3.Text = "30";
+            LB_seconds.Text = "30";
             /* Timer 啟動 */
             timer1.Start();
         }
@@ -86,17 +85,17 @@ namespace bombgame
                                 case "NP":
                                     {
                                         string Player_ID = Message_From_Server.Substring(3, 1);
-                                        players.Add(Player_ID,new player(Player_ID));
+                                        players.Add(Player_ID, new player(Player_ID));
                                     }
                                     break;
                                 case "PL":
                                     {
                                         string Player_ID = Message_From_Server.Substring(2, 1);
-                                        string x = Message_From_Server.Substring(3,1);
+                                        string x = Message_From_Server.Substring(3, 1);
                                         string y = Message_From_Server.Substring(4, 1);
                                         players[Player_ID].pos_x = int.Parse(x);
                                         players[Player_ID].pos_y = int.Parse(y);
-                                        
+
                                     }
                                     break;
                                 case "PO":
@@ -141,12 +140,12 @@ namespace bombgame
             if (timeleft > 0)
             {
                 timeleft = timeleft - 1;
-                label3.Text = timeleft.ToString();
+                LB_seconds.Text = timeleft.ToString();
             }
             else
             {
                 timer1.Stop();
-                label3.Text = "0";
+                LB_seconds.Text = "0";
             }
 
             if (players[ID].bomb != 4)
@@ -162,7 +161,7 @@ namespace bombgame
         {
             int num = Convert.ToInt32(id);
             if (num == ID) { return; }
-            
+
             if (state[0] == '-')
             {
                 // 顯示此玩家已淘汰

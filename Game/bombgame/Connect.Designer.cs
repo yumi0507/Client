@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblName = new Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Connect));
             lblIPAddress = new Label();
             txbIPAddress = new TextBox();
             lblIPPort = new Label();
@@ -36,60 +36,52 @@
             btnConnect = new Button();
             btn_GameStart = new Button();
             list_LOG = new ListBox();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // lblName
-            // 
-            lblName.AutoSize = true;
-            lblName.Location = new Point(135, 87);
-            lblName.Margin = new Padding(2, 0, 2, 0);
-            lblName.Name = "lblName";
-            lblName.Size = new Size(150, 15);
-            lblName.TabIndex = 1;
-            lblName.Text = "Welcome to Bomb Game";
             // 
             // lblIPAddress
             // 
             lblIPAddress.AutoSize = true;
-            lblIPAddress.Location = new Point(76, 160);
-            lblIPAddress.Margin = new Padding(2, 0, 2, 0);
+            lblIPAddress.Location = new Point(152, 320);
+            lblIPAddress.Margin = new Padding(4, 0, 4, 0);
             lblIPAddress.Name = "lblIPAddress";
-            lblIPAddress.Size = new Size(65, 15);
+            lblIPAddress.Size = new Size(132, 30);
             lblIPAddress.TabIndex = 2;
             lblIPAddress.Text = "IP Address";
             // 
             // txbIPAddress
             // 
-            txbIPAddress.Location = new Point(152, 158);
-            txbIPAddress.Margin = new Padding(2);
+            txbIPAddress.Location = new Point(304, 316);
+            txbIPAddress.Margin = new Padding(4, 4, 4, 4);
             txbIPAddress.Name = "txbIPAddress";
-            txbIPAddress.Size = new Size(114, 23);
+            txbIPAddress.Size = new Size(224, 38);
             txbIPAddress.TabIndex = 3;
             // 
             // lblIPPort
             // 
             lblIPPort.AutoSize = true;
-            lblIPPort.Location = new Point(99, 198);
-            lblIPPort.Margin = new Padding(2, 0, 2, 0);
+            lblIPPort.Location = new Point(198, 396);
+            lblIPPort.Margin = new Padding(4, 0, 4, 0);
             lblIPPort.Name = "lblIPPort";
-            lblIPPort.Size = new Size(43, 15);
+            lblIPPort.Size = new Size(87, 30);
             lblIPPort.TabIndex = 4;
             lblIPPort.Text = "IP Port";
             // 
             // tbx_PORT
             // 
-            tbx_PORT.Location = new Point(152, 196);
-            tbx_PORT.Margin = new Padding(2);
+            tbx_PORT.Location = new Point(304, 392);
+            tbx_PORT.Margin = new Padding(4, 4, 4, 4);
             tbx_PORT.Name = "tbx_PORT";
-            tbx_PORT.Size = new Size(114, 23);
+            tbx_PORT.Size = new Size(224, 38);
             tbx_PORT.TabIndex = 5;
             // 
             // btnConnect
             // 
-            btnConnect.Location = new Point(310, 143);
-            btnConnect.Margin = new Padding(2);
+            btnConnect.Location = new Point(620, 286);
+            btnConnect.Margin = new Padding(4, 4, 4, 4);
             btnConnect.Name = "btnConnect";
-            btnConnect.Size = new Size(89, 32);
+            btnConnect.Size = new Size(178, 64);
             btnConnect.TabIndex = 6;
             btnConnect.Text = "Connect";
             btnConnect.UseVisualStyleBackColor = true;
@@ -97,9 +89,10 @@
             // 
             // btn_GameStart
             // 
-            btn_GameStart.Location = new Point(310, 191);
+            btn_GameStart.Location = new Point(620, 382);
+            btn_GameStart.Margin = new Padding(6, 6, 6, 6);
             btn_GameStart.Name = "btn_GameStart";
-            btn_GameStart.Size = new Size(89, 31);
+            btn_GameStart.Size = new Size(178, 62);
             btn_GameStart.TabIndex = 7;
             btn_GameStart.Text = "Game Start";
             btn_GameStart.UseVisualStyleBackColor = true;
@@ -108,17 +101,28 @@
             // list_LOG
             // 
             list_LOG.FormattingEnabled = true;
-            list_LOG.ItemHeight = 15;
-            list_LOG.Location = new Point(12, 232);
+            list_LOG.ItemHeight = 30;
+            list_LOG.Location = new Point(24, 464);
+            list_LOG.Margin = new Padding(6, 6, 6, 6);
             list_LOG.Name = "list_LOG";
-            list_LOG.Size = new Size(428, 94);
+            list_LOG.Size = new Size(852, 184);
             list_LOG.TabIndex = 8;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.BombGame1;
+            pictureBox1.Location = new Point(328, 118);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(200, 158);
+            pictureBox1.TabIndex = 9;
+            pictureBox1.TabStop = false;
             // 
             // Connect
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(14F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(452, 338);
+            ClientSize = new Size(904, 676);
+            Controls.Add(pictureBox1);
             Controls.Add(list_LOG);
             Controls.Add(btn_GameStart);
             Controls.Add(btnConnect);
@@ -126,16 +130,16 @@
             Controls.Add(lblIPPort);
             Controls.Add(txbIPAddress);
             Controls.Add(lblIPAddress);
-            Controls.Add(lblName);
-            Margin = new Padding(2);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(4, 4, 4, 4);
             Name = "Connect";
-            Text = "Form2";
+            Text = "Connecting";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private Label lblName;
         private Label lblIPAddress;
         private TextBox txbIPAddress;
         private Label lblIPPort;
@@ -143,5 +147,6 @@
         private Button btnConnect;
         private Button btn_GameStart;
         private ListBox list_LOG;
+        private PictureBox pictureBox1;
     }
 }

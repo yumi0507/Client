@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Drawing;
 using System.Net;
 using System.Net.Sockets;
 
 namespace bombgame.Player
 {
-    public class player
+    public class player : PictureBox
     {
         private string id;
 
@@ -35,7 +37,7 @@ namespace bombgame.Player
         }
         public player(string ID)
         {
-            id = ID; ;
+            id = ID; 
             int pos_x = 0;
             int pos_y = 0;
     }
@@ -43,7 +45,7 @@ namespace bombgame.Player
         public int ID { get { return int.Parse(id); } }
         public int bomb { get { return bomb_hold; } }
 
-        public void GameSet(int index, int x, int y)
+        public void GameSet(int x, int y)
         {
             pos_x = x;
             pos_y = y;

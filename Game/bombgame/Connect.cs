@@ -32,8 +32,8 @@ namespace bombgame
             if (tcpClient.Connected)
             {
                 ADD_TO_LOG("Connected to the Server");
-                connect = new Connection_Control(tcpClient,this);
-                player = new player(ReceiveFromServer(tcpClient),tcpClient);
+                connect = new Connection_Control(tcpClient, this);
+                player = new player(ReceiveFromServer(tcpClient), tcpClient);
                 ClientHandler = new Thread(ClientHandle);
                 ClientHandler.IsBackground = true;
                 ClientHandler.Start(tcpClient);
