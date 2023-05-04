@@ -18,6 +18,7 @@ namespace bombgame
         int round;
         int ID;
         string Round = "Round ";
+        string user;
         Connect connect;
         Dictionary<string, player> players;
         bool GameStart = false;
@@ -30,6 +31,7 @@ namespace bombgame
             connect = form;
             round = 0;
             ID = connect.player.ID;
+            user = ID.ToString();
             players = new Dictionary<string, player>();
             players.Add(connect.player.ID.ToString(), connect.player);
             Thread thread = new Thread(ClientHandled_For_Game);
@@ -44,6 +46,49 @@ namespace bombgame
             }
         }
 
+        private void GameUI_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            while (true)
+            {
+                if (e.KeyCode == Keys.W || e.KeyCode == Keys.Up)
+                {
+                    if (players[user].pos_y < 5)
+                        players[user].MoveRight();
+
+                }
+
+                else if (e.KeyCode == Keys.S || e.KeyCode == Keys.Down)
+                {
+                    if (players[user].pos_y > 0)
+                        players[user].MoveLeft();
+                }
+
+                else if (e.KeyCode == Keys.D || e.KeyCode == Keys.Right)
+                {
+                    if (players[user].pos_x < 5)
+                        players[user].MoveDown();
+                }
+
+                else if (e.KeyCode == Keys.A || e.KeyCode == Keys.Left)
+                {
+                    if (players[user].pos_x > 0)
+                        players[user].MoveUp();
+                }
+
+                else if (e.KeyCode == Keys.Space)
+                {
+                    if (players[user].bomb > 0)
+                    {
+                        players[user].SetBomb();
+                        players[user].connect.SenttoServer("PB" + players[user].pos_x.ToString() + players[user].pos_y.ToString());
+                    }
+                    else
+                        MessageBox.Show("You have no Bombs left.");
+
+                }
+            }
+        }
         public void GameLoop()
         {
 
@@ -101,10 +146,27 @@ namespace bombgame
                                 case "PO":
                                     {
                                         string Out_Player_ID = Message_From_Server.Substring(3, 1);
+                                        int OPID = Convert.ToInt32(Out_Player_ID);
                                         if (Out_Player_ID == ID.ToString())
                                             MessageBox.Show("YOU ARE OUT");
                                         else
                                             MessageBox.Show("Player " + Out_Player_ID + " is OUT");
+                                        players[Out_Player_ID].Visible = false;
+                                        switch (OPID)
+                                        {
+                                            case 1:
+                                                player1_null.Visible = true;
+                                                break;
+                                            case 2:
+                                                player2_null.Visible = true;
+                                                break;
+                                            case 3:
+                                                player3_null.Visible = true;
+                                                break;
+                                            case 4:
+                                                player4_null.Visible = true;
+                                                break;
+                                        }
                                         players.Remove(Out_Player_ID);
                                     }
                                     break;
@@ -137,7 +199,6 @@ namespace bombgame
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            string Player_ID = ID.ToString();
             if (timeleft > 0)
             {
                 timeleft = timeleft - 1;
@@ -148,32 +209,6 @@ namespace bombgame
                 timer1.Stop();
                 LB_seconds.Text = "0";
             }
-
-            if (players[Player_ID].bomb != 4)
-            {
-                for (int i = 0; i < players[Player_ID].bomb; i += 2)
-                {
-                    //  bomb appear(i, i+1)
-                }
-            }
-        }
-
-        public void OtherPlayerAction(string id, string state)
-        {
-            int num = Convert.ToInt32(id);
-            if (num == ID) { return; }
-
-            if (state[0] == '-')
-            {
-                // 顯示此玩家已淘汰
-                return;
-            }
-            int row = Convert.ToInt32(state[0]);
-            int col = Convert.ToInt32(state[2]);
-
-            players[id].pos_x = row;
-            players[id].pos_y = col;
-
         }
 
         private void GameUI_Load(object sender, EventArgs e)

@@ -53,7 +53,7 @@
             // txbIPAddress
             // 
             txbIPAddress.Location = new Point(304, 316);
-            txbIPAddress.Margin = new Padding(4, 4, 4, 4);
+            txbIPAddress.Margin = new Padding(4);
             txbIPAddress.Name = "txbIPAddress";
             txbIPAddress.Size = new Size(224, 38);
             txbIPAddress.TabIndex = 3;
@@ -71,7 +71,7 @@
             // tbx_PORT
             // 
             tbx_PORT.Location = new Point(304, 392);
-            tbx_PORT.Margin = new Padding(4, 4, 4, 4);
+            tbx_PORT.Margin = new Padding(4);
             tbx_PORT.Name = "tbx_PORT";
             tbx_PORT.Size = new Size(224, 38);
             tbx_PORT.TabIndex = 5;
@@ -79,7 +79,7 @@
             // btnConnect
             // 
             btnConnect.Location = new Point(620, 286);
-            btnConnect.Margin = new Padding(4, 4, 4, 4);
+            btnConnect.Margin = new Padding(4);
             btnConnect.Name = "btnConnect";
             btnConnect.Size = new Size(178, 64);
             btnConnect.TabIndex = 6;
@@ -90,7 +90,7 @@
             // btn_GameStart
             // 
             btn_GameStart.Location = new Point(620, 382);
-            btn_GameStart.Margin = new Padding(6, 6, 6, 6);
+            btn_GameStart.Margin = new Padding(6);
             btn_GameStart.Name = "btn_GameStart";
             btn_GameStart.Size = new Size(178, 62);
             btn_GameStart.TabIndex = 7;
@@ -103,7 +103,7 @@
             list_LOG.FormattingEnabled = true;
             list_LOG.ItemHeight = 30;
             list_LOG.Location = new Point(24, 464);
-            list_LOG.Margin = new Padding(6, 6, 6, 6);
+            list_LOG.Margin = new Padding(6);
             list_LOG.Name = "list_LOG";
             list_LOG.Size = new Size(852, 184);
             list_LOG.TabIndex = 8;
@@ -111,11 +111,13 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.BombGame1;
-            pictureBox1.Location = new Point(328, 118);
+            pictureBox1.Location = new Point(324, 113);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(200, 158);
+            pictureBox1.Size = new Size(200, 140);
             pictureBox1.TabIndex = 9;
             pictureBox1.TabStop = false;
+            pictureBox1.Height = pictureBox1.Height * 3;
+            pictureBox1.Width = pictureBox1.Width * 3;
             // 
             // Connect
             // 
@@ -131,7 +133,7 @@
             Controls.Add(txbIPAddress);
             Controls.Add(lblIPAddress);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "Connect";
             Text = "Connecting";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

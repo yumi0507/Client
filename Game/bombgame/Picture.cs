@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Net;
 using System.Net.Sockets;
+using bombgame;
 
 namespace bombgame.Picture
 {
@@ -24,7 +25,7 @@ namespace bombgame.Picture
     {
         public Bomb(int x, int y) : base(x, y)
         {
-            this.Image = bombgame.Properties.Resources.Bomb;
+            this.Image = Properties.Resources.Bomb;
         }
     }
 
@@ -32,7 +33,7 @@ namespace bombgame.Picture
     {
         public Explode(int x, int y) : base(x, y)
         {
-            this.Image = bombgame.Properties.Resources.Explode;
+            this.Image = Properties.Resources.Explode;
         }
     }
 }

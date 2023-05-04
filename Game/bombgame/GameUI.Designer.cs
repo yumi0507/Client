@@ -219,6 +219,7 @@ namespace bombgame
             player1_null.SizeMode = PictureBoxSizeMode.StretchImage;
             player1_null.TabIndex = 97;
             player1_null.TabStop = false;
+            player1_null.Visible = false;
             // 
             // timer
             // 
@@ -243,6 +244,7 @@ namespace bombgame
             player4_null.SizeMode = PictureBoxSizeMode.StretchImage;
             player4_null.TabIndex = 175;
             player4_null.TabStop = false;
+            player4_null.Visible = false;
             // 
             // player3_null
             // 
@@ -255,6 +257,7 @@ namespace bombgame
             player3_null.SizeMode = PictureBoxSizeMode.StretchImage;
             player3_null.TabIndex = 176;
             player3_null.TabStop = false;
+            player3_null.Visible = false;
             // 
             // player2_null
             // 
@@ -267,6 +270,7 @@ namespace bombgame
             player2_null.SizeMode = PictureBoxSizeMode.StretchImage;
             player2_null.TabIndex = 177;
             player2_null.TabStop = false;
+            player2_null.Visible = false;
             // 
             // GameUI
             // 

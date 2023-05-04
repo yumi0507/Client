@@ -7,6 +7,10 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Net;
 using System.Net.Sockets;
+using bombgame.Properties;
+using System.Web;
+using bombgame.Picture;
+using System.Numerics;
 
 namespace bombgame.Player
 {
@@ -21,6 +25,9 @@ namespace bombgame.Player
 
         private int bomb_hold;
         private bool[,] bomb_location;
+        private List<Bomb> bomb_onTile;
+        private int[] Row = new int[6] {10,94,178,262,346,430};
+        private int[] Col = new int[6] {16,101,186,271,356,441};
 
         public player(string ID, TcpClient client)
         {
@@ -34,13 +41,38 @@ namespace bombgame.Player
                 for (int j = 0; j < 6; j++)
                     bomb_location[i, j] = false;
             }
+            bomb_onTile = new List<Bomb>();
+            SetImage();
+
         }
         public player(string ID)
         {
             id = ID; 
             int pos_x = 0;
             int pos_y = 0;
-    }
+            SetImage();
+        }
+
+        public void SetImage()
+        {
+            int Player_ID = Convert.ToInt32(id);
+            switch (Player_ID)
+            {
+                case 1:
+                    this.Image = Resources.alienPink_stand;
+                    break;
+                case 2:
+                    this.Image = Resources.alienYellow_stand;
+                    break;
+                case 3:
+                    this.Image = Resources.alienBlue_stand;
+                    break;
+                case 4:
+                    this.Image = Resources.alienGreen_stand;
+                    break;
+            }
+            this.Visible = false;
+        }
 
         public int ID { get { return int.Parse(id); } }
         public int bomb { get { return bomb_hold; } }
@@ -49,11 +81,14 @@ namespace bombgame.Player
         {
             pos_x = x;
             pos_y = y;
+            this.Location = new Point(Row[y], Col[x]);
+            this.Visible = true;
         }
 
         public void SetBomb()
         {
             bomb_location[pos_x, pos_y] = true;
+            bomb_onTile.Add(new Bomb(Row[pos_y], Col[pos_x]));
             bomb_hold--;
         }
 
@@ -64,52 +99,34 @@ namespace bombgame.Player
                 for (int j = 0; j < 6; j++)
                     bomb_location[i, j] = false;
             }
+            bomb_onTile.Clear();
             bomb_hold = 4;
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        public void MoveLeft()
         {
-
-            while (true)
-            {
-                if (e.KeyCode == Keys.W || e.KeyCode == Keys.Up)
-                {
-                    if (pos_y < 5)
-                        pos_y++;
-                    
-                }
-
-                else if (e.KeyCode == Keys.S || e.KeyCode == Keys.Down)
-                {
-                    if (pos_y > 0)
-                        pos_y--;
-                }
-
-                else if (e.KeyCode == Keys.D || e.KeyCode == Keys.Right)
-                {
-                    if (pos_x < 5)
-                        pos_x++;
-                }
-
-                else if (e.KeyCode == Keys.A || e.KeyCode == Keys.Left)
-                {
-                    if (pos_x > 0) 
-                        pos_x--;
-                }
-
-                else if (e.KeyCode == Keys.Space)
-                {
-                    if (bomb > 0)
-                    {
-                        SetBomb();
-                        connect.SenttoServer("PB"+pos_x.ToString()+pos_y.ToString());
-                    }
-                    else
-                        MessageBox.Show("You have no Bombs left.");
-
-                }
-            }
+            pos_y--;
+            this.Left -= 84;
         }
+
+        public void MoveRight()
+        {
+            pos_y++;
+            this.Left += 84;
+        }
+
+        public void MoveUp()
+        {
+            pos_x--;
+            this.Top -= 85;
+        }
+
+        public void MoveDown() 
+        {
+            pos_x++;
+            this.Top += 85;
+        }
+        
     }
     
 }
