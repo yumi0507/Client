@@ -1,15 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hAV/EatPdsc6Ga5H6APT08SrPwLN4bJvGEFJNA2omtUTs/8lUDnw4EQdaCPjuxYbxMJaAmhVyZJIAU+FR0YY9g==",
+  "dgSpecHash": "AKDvKs6Jz6BqsRuN3zQbjQZTCqFNumgYpH66ZLo2qTywu7T/AS1qqjzDG1dTtsJQGvHg1IeGd6d8SvqS+zwHjw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\miche\\Documents\\GitHub\\Client\\Game\\bombgame\\bombgame.csproj",
+  "projectFilePath": "C:\\Users\\user\\source\\repos\\aa\\Game\\bombgame\\bombgame.csproj",
   "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "讀取快取檔案 C:\\Users\\miche\\Documents\\GitHub\\Client\\Game\\bombgame\\obj\\project.nuget.cache 時發生問題: Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
