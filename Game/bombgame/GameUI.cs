@@ -21,6 +21,7 @@ namespace bombgame
         string user;
         Connect connect;
         Dictionary<string, player> players;
+        List<Explode> explodes;
         bool GameStart = false;
 
 
@@ -34,6 +35,7 @@ namespace bombgame
             user = ID.ToString();
             players = new Dictionary<string, player>();
             players.Add(connect.player.ID.ToString(), connect.player);
+            explodes = new List<Explode>();
             Thread thread = new Thread(ClientHandled_For_Game);
             thread.IsBackground = true;
             thread.Start(connect.tcpClient);
@@ -89,20 +91,7 @@ namespace bombgame
                 }
             }
         }
-        public void GameLoop()
-        {
 
-        }
-
-        private void Round_Start(object sender, EventArgs e)
-        {
-            round++;
-            LB_round.Text = Round + round.ToString();
-            timeleft = 30;
-            LB_seconds.Text = "30";
-            /* Timer ±Ò°Ê */
-            timer1.Start();
-        }
         public void ClientHandled_For_Game(Object clientobj)
         {
             TcpClient client = (TcpClient)clientobj;
@@ -133,41 +122,49 @@ namespace bombgame
                                         players.Add(Player_ID, new player(Player_ID));
                                     }
                                     break;
+                                case "BS":
+                                    {
+                                        string x = Message_From_Server.Substring(2, 1);
+                                        string y = Message_From_Server.Substring(3, 1);
+                                        explodes.Add(new Explode(Convert.ToInt32(x), Convert.ToInt32(y)));
+                                    }
+                                    break;
                                 case "PL":
                                     {
-                                        string Player_ID = Message_From_Server.Substring(2, 1);
-                                        string x = Message_From_Server.Substring(3, 1);
-                                        string y = Message_From_Server.Substring(4, 1);
+                                        string Alive = Message_From_Server.Substring(2,1);
+                                        string Player_ID = Message_From_Server.Substring(3, 1);
+                                        string x = Message_From_Server.Substring(4, 1);
+                                        string y = Message_From_Server.Substring(5, 1);
                                         players[Player_ID].pos_x = int.Parse(x);
                                         players[Player_ID].pos_y = int.Parse(y);
 
-                                    }
-                                    break;
-                                case "PO":
-                                    {
-                                        string Out_Player_ID = Message_From_Server.Substring(3, 1);
-                                        int OPID = Convert.ToInt32(Out_Player_ID);
-                                        if (Out_Player_ID == ID.ToString())
-                                            MessageBox.Show("YOU ARE OUT");
-                                        else
-                                            MessageBox.Show("Player " + Out_Player_ID + " is OUT");
-                                        players[Out_Player_ID].Visible = false;
-                                        switch (OPID)
+                                        if(Alive == "D")
                                         {
-                                            case 1:
-                                                player1_null.Visible = true;
-                                                break;
-                                            case 2:
-                                                player2_null.Visible = true;
-                                                break;
-                                            case 3:
-                                                player3_null.Visible = true;
-                                                break;
-                                            case 4:
-                                                player4_null.Visible = true;
-                                                break;
+                                            int Out_Player_ID = Convert.ToInt32(Player_ID);
+                                            if (Out_Player_ID == ID)
+                                                MessageBox.Show("YOU ARE OUT");
+                                            else
+                                                MessageBox.Show("Player " + Out_Player_ID + " is OUT");
+                                            players[Player_ID].Visible = false;
+                                            switch (Out_Player_ID)
+                                            {
+                                                case 1:
+                                                    player1_null.Visible = true;
+                                                    break;
+                                                case 2:
+                                                    player2_null.Visible = true;
+                                                    break;
+                                                case 3:
+                                                    player3_null.Visible = true;
+                                                    break;
+                                                case 4:
+                                                    player4_null.Visible = true;
+                                                    break;
+                                            }
+                                            players.Remove(Player_ID);
+
                                         }
-                                        players.Remove(Out_Player_ID);
+
                                     }
                                     break;
                                 case "GE":
@@ -197,6 +194,15 @@ namespace bombgame
             }
         }
 
+        private void Round_Start(object sender, EventArgs e)
+        {
+            round++;
+            LB_round.Text = Round + round.ToString();
+            timeleft = 30;
+            LB_seconds.Text = "30";
+            /* Timer ±Ò°Ê */
+            timer1.Start();
+        }
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (timeleft > 0)
@@ -209,6 +215,12 @@ namespace bombgame
                 timer1.Stop();
                 LB_seconds.Text = "0";
             }
+        }
+
+        private void Round_End(object sender, EventArgs e)
+        {
+            foreach(Explode explode in explodes) { explode.Invalidate(); }
+            explodes.Clear();
         }
 
         private void GameUI_Load(object sender, EventArgs e)
