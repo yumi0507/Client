@@ -98,11 +98,6 @@ namespace bombgame.Player
         {
             foreach(Bomb bomb in bomb_onTile) { bomb.Invalidate(); }
             bomb_onTile.Clear();
-        }
-
-        public void NewRoundSet()
-        {
-            ClearBomb();
             for (int i = 0; i < 6; i++)
             {
                 for (int j = 0; j < 6; j++)

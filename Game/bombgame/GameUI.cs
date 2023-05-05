@@ -40,12 +40,6 @@ namespace bombgame
             thread.IsBackground = true;
             thread.Start(connect.tcpClient);
 
-            if (GameStart)
-                GameLoop();
-            else
-            {
-
-            }
         }
 
         private void GameUI_KeyDown(object sender, KeyEventArgs e)
@@ -114,6 +108,11 @@ namespace bombgame
                             switch (Command)
                             {
                                 case "GS":
+                                    if (players.Count < 4)
+                                    {
+                                        if (players.Count == 2) { player3_null.Visible = true; }
+                                        player4_null.Visible = true;
+                                    }
                                     GameStart = true;
                                     break;
                                 case "NP":
@@ -203,6 +202,7 @@ namespace bombgame
             /* Timer ±Ò°Ê */
             timer1.Start();
         }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (timeleft > 0)
@@ -221,6 +221,7 @@ namespace bombgame
         {
             foreach(Explode explode in explodes) { explode.Invalidate(); }
             explodes.Clear();
+            players[ID.ToString()].ClearBomb();
         }
 
         private void GameUI_Load(object sender, EventArgs e)
