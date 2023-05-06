@@ -127,7 +127,7 @@ namespace bombgame
             GameUI gameUI = new GameUI(this);
             gameUI.Show();
             ClientHandler = null;
-            this.Close();
+            btn_GameStart.Enabled = false;
         }
 
     }
