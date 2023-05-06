@@ -26,11 +26,6 @@ namespace bombgame
             tcpClient = new TcpClient();
         }
 
-        private void btnConnect_Click(object sender, EventArgs e)
-        {
-            
-
-        }
         public string ReceiveFromServer(TcpClient client)
         {
             NetworkStream networkStream = client.GetStream();
@@ -105,6 +100,7 @@ namespace bombgame
                 }
             }
         }
+
         private void btn_GameStart_Click(object sender, EventArgs e)
         {
             GameUI gameUI = new GameUI(this);
@@ -113,7 +109,7 @@ namespace bombgame
             //this.Close();
         }
 
-        private void btnConnect_Click_1(object sender, EventArgs e)
+        private void btn_Connect_Click(object sender, EventArgs e)
         {
             tcpClient.Connect(IPAddress.Parse(txbIPAddress.Text), int.Parse(tbx_PORT.Text));
             if (tcpClient.Connected)

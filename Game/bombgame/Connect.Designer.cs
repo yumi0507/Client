@@ -29,121 +29,123 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Connect));
-            this.lblIPAddress = new System.Windows.Forms.Label();
-            this.txbIPAddress = new System.Windows.Forms.TextBox();
-            this.lblIPPort = new System.Windows.Forms.Label();
-            this.tbx_PORT = new System.Windows.Forms.TextBox();
-            this.btnConnect = new System.Windows.Forms.Button();
-            this.btn_GameStart = new System.Windows.Forms.Button();
-            this.list_LOG = new System.Windows.Forms.ListBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            lbl_IPAddress = new Label();
+            txbIPAddress = new TextBox();
+            lbl_IPPort = new Label();
+            tbx_PORT = new TextBox();
+            btn_Connect = new Button();
+            btn_GameStart = new Button();
+            list_LOG = new ListBox();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
-            // lblIPAddress
+            // lbl_IPAddress
             // 
-            this.lblIPAddress.AutoSize = true;
-            this.lblIPAddress.Location = new System.Drawing.Point(76, 160);
-            this.lblIPAddress.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblIPAddress.Name = "lblIPAddress";
-            this.lblIPAddress.Size = new System.Drawing.Size(65, 15);
-            this.lblIPAddress.TabIndex = 2;
-            this.lblIPAddress.Text = "IP Address";
+            lbl_IPAddress.AutoSize = true;
+            lbl_IPAddress.Location = new Point(152, 320);
+            lbl_IPAddress.Margin = new Padding(4, 0, 4, 0);
+            lbl_IPAddress.Name = "lbl_IPAddress";
+            lbl_IPAddress.Size = new Size(132, 30);
+            lbl_IPAddress.TabIndex = 2;
+            lbl_IPAddress.Text = "IP Address";
             // 
             // txbIPAddress
             // 
-            this.txbIPAddress.Location = new System.Drawing.Point(152, 158);
-            this.txbIPAddress.Margin = new System.Windows.Forms.Padding(2);
-            this.txbIPAddress.Name = "txbIPAddress";
-            this.txbIPAddress.Size = new System.Drawing.Size(114, 23);
-            this.txbIPAddress.TabIndex = 3;
+            txbIPAddress.Location = new Point(304, 316);
+            txbIPAddress.Margin = new Padding(4, 4, 4, 4);
+            txbIPAddress.Name = "txbIPAddress";
+            txbIPAddress.Size = new Size(224, 38);
+            txbIPAddress.TabIndex = 3;
             // 
-            // lblIPPort
+            // lbl_IPPort
             // 
-            this.lblIPPort.AutoSize = true;
-            this.lblIPPort.Location = new System.Drawing.Point(99, 198);
-            this.lblIPPort.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblIPPort.Name = "lblIPPort";
-            this.lblIPPort.Size = new System.Drawing.Size(43, 15);
-            this.lblIPPort.TabIndex = 4;
-            this.lblIPPort.Text = "IP Port";
+            lbl_IPPort.AutoSize = true;
+            lbl_IPPort.Location = new Point(198, 396);
+            lbl_IPPort.Margin = new Padding(4, 0, 4, 0);
+            lbl_IPPort.Name = "lbl_IPPort";
+            lbl_IPPort.Size = new Size(87, 30);
+            lbl_IPPort.TabIndex = 4;
+            lbl_IPPort.Text = "IP Port";
             // 
             // tbx_PORT
             // 
-            this.tbx_PORT.Location = new System.Drawing.Point(152, 196);
-            this.tbx_PORT.Margin = new System.Windows.Forms.Padding(2);
-            this.tbx_PORT.Name = "tbx_PORT";
-            this.tbx_PORT.Size = new System.Drawing.Size(114, 23);
-            this.tbx_PORT.TabIndex = 5;
+            tbx_PORT.Location = new Point(304, 392);
+            tbx_PORT.Margin = new Padding(4, 4, 4, 4);
+            tbx_PORT.Name = "tbx_PORT";
+            tbx_PORT.Size = new Size(224, 38);
+            tbx_PORT.TabIndex = 5;
             // 
-            // btnConnect
+            // btn_Connect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(310, 143);
-            this.btnConnect.Margin = new System.Windows.Forms.Padding(2);
-            this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(89, 32);
-            this.btnConnect.TabIndex = 6;
-            this.btnConnect.Text = "Connect";
-            this.btnConnect.UseVisualStyleBackColor = true;
-            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click_1);
+            btn_Connect.Location = new Point(620, 286);
+            btn_Connect.Margin = new Padding(4, 4, 4, 4);
+            btn_Connect.Name = "btn_Connect";
+            btn_Connect.Size = new Size(178, 64);
+            btn_Connect.TabIndex = 6;
+            btn_Connect.Text = "Connect";
+            btn_Connect.UseVisualStyleBackColor = true;
+            btn_Connect.Click += btn_Connect_Click;
             // 
             // btn_GameStart
             // 
-            this.btn_GameStart.Location = new System.Drawing.Point(310, 191);
-            this.btn_GameStart.Name = "btn_GameStart";
-            this.btn_GameStart.Size = new System.Drawing.Size(89, 31);
-            this.btn_GameStart.TabIndex = 7;
-            this.btn_GameStart.Text = "Game Start";
-            this.btn_GameStart.UseVisualStyleBackColor = true;
+            btn_GameStart.Location = new Point(620, 382);
+            btn_GameStart.Margin = new Padding(6, 6, 6, 6);
+            btn_GameStart.Name = "btn_GameStart";
+            btn_GameStart.Size = new Size(178, 62);
+            btn_GameStart.TabIndex = 7;
+            btn_GameStart.Text = "Game Start";
+            btn_GameStart.UseVisualStyleBackColor = true;
+            btn_GameStart.Click += btn_GameStart_Click;
             // 
             // list_LOG
             // 
-            this.list_LOG.FormattingEnabled = true;
-            this.list_LOG.ItemHeight = 15;
-            this.list_LOG.Location = new System.Drawing.Point(12, 232);
-            this.list_LOG.Name = "list_LOG";
-            this.list_LOG.Size = new System.Drawing.Size(428, 94);
-            this.list_LOG.TabIndex = 8;
+            list_LOG.FormattingEnabled = true;
+            list_LOG.ItemHeight = 30;
+            list_LOG.Location = new Point(24, 464);
+            list_LOG.Margin = new Padding(6, 6, 6, 6);
+            list_LOG.Name = "list_LOG";
+            list_LOG.Size = new Size(852, 184);
+            list_LOG.TabIndex = 8;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::bombgame.Properties.Resources.BombGame1;
-            this.pictureBox1.Location = new System.Drawing.Point(99, 26);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(198, 128);
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.Image = Properties.Resources.BombGame1;
+            pictureBox1.Location = new Point(198, 52);
+            pictureBox1.Margin = new Padding(4, 4, 4, 4);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(396, 256);
+            pictureBox1.TabIndex = 9;
+            pictureBox1.TabStop = false;
             // 
             // Connect
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(452, 338);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.list_LOG);
-            this.Controls.Add(this.btn_GameStart);
-            this.Controls.Add(this.btnConnect);
-            this.Controls.Add(this.tbx_PORT);
-            this.Controls.Add(this.lblIPPort);
-            this.Controls.Add(this.txbIPAddress);
-            this.Controls.Add(this.lblIPAddress);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Connect";
-            this.Text = "Connecting";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(14F, 30F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(904, 676);
+            Controls.Add(pictureBox1);
+            Controls.Add(list_LOG);
+            Controls.Add(btn_GameStart);
+            Controls.Add(btn_Connect);
+            Controls.Add(tbx_PORT);
+            Controls.Add(lbl_IPPort);
+            Controls.Add(txbIPAddress);
+            Controls.Add(lbl_IPAddress);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(4, 4, 4, 4);
+            Name = "Connect";
+            Text = "Connecting";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-        private Label lblIPAddress;
+        private Label lbl_IPAddress;
         private TextBox txbIPAddress;
-        private Label lblIPPort;
+        private Label lbl_IPPort;
         private TextBox tbx_PORT;
-        private Button btnConnect;
+        private Button btn_Connect;
         private Button btn_GameStart;
         private ListBox list_LOG;
         private PictureBox pictureBox1;

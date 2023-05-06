@@ -9,11 +9,13 @@ using System.Net;
 using System.Net.Sockets;
 using System.Windows.Forms;
 using System.Text;
+using System.Timers;
 
 namespace bombgame
 {
     public partial class GameUI : Form
     {
+        int countdown;
         int timeleft;
         int round;
         int ID;
@@ -23,7 +25,7 @@ namespace bombgame
         Dictionary<string, player> players;
         List<Explode> explodes;
         bool GameStart = false;
-
+        System.Timers.Timer Countdown;
 
 
         public GameUI(Connect form)
@@ -36,16 +38,26 @@ namespace bombgame
             players = new Dictionary<string, player>();
             players.Add(connect.player.ID.ToString(), connect.player);
             explodes = new List<Explode>();
+            Countdown = new System.Timers.Timer();
+            Countdown.Interval = 1000;
+
             Thread thread = new Thread(ClientHandled_For_Game);
             thread.IsBackground = true;
             thread.Start(connect.tcpClient);
+
+            this.KeyPreview = true;
+
+        }
+
+        private void GameUI_Load(object sender, EventArgs e)
+        {
 
         }
 
         private void GameUI_KeyDown(object sender, KeyEventArgs e)
         {
 
-            while (true)
+            while (GameStart)
             {
                 if (e.KeyCode == Keys.W || e.KeyCode == Keys.Up)
                 {
@@ -108,12 +120,25 @@ namespace bombgame
                             switch (Command)
                             {
                                 case "GS":
-                                    if (players.Count < 4)
                                     {
-                                        if (players.Count == 2) { player3_null.Visible = true; }
-                                        player4_null.Visible = true;
+                                        if (players.Count < 4)
+                                        {
+                                            if (players.Count == 2) { player3_null.Visible = true; }
+                                            player4_null.Visible = true;
+                                        }
+                                        GameStart = true;
+                                        round++;
+                                        LB_round.Text = Round + round.ToString();
+                                        countdown = 3;
+                                        Countdown.Start();
+                                        if (countdown == 0)
+                                        {
+                                            timeleft = 30;
+                                            LB_seconds.Text = "30";
+                                            /* Timer ±Ò°Ê */
+                                            timer1.Start();
+                                        }
                                     }
-                                    GameStart = true;
                                     break;
                                 case "NP":
                                     {
@@ -130,14 +155,14 @@ namespace bombgame
                                     break;
                                 case "PL":
                                     {
-                                        string Alive = Message_From_Server.Substring(2,1);
+                                        string Alive = Message_From_Server.Substring(2, 1);
                                         string Player_ID = Message_From_Server.Substring(3, 1);
                                         string x = Message_From_Server.Substring(4, 1);
                                         string y = Message_From_Server.Substring(5, 1);
                                         players[Player_ID].pos_x = int.Parse(x);
                                         players[Player_ID].pos_y = int.Parse(y);
 
-                                        if(Alive == "D")
+                                        if (Alive == "D")
                                         {
                                             int Out_Player_ID = Convert.ToInt32(Player_ID);
                                             if (Out_Player_ID == ID)
@@ -166,12 +191,22 @@ namespace bombgame
 
                                     }
                                     break;
+                                case "ER":
+                                    {
+                                        Round_End();
+                                    }
+                                    break;
                                 case "GE":
                                     {
                                         string Winner_ID = Message_From_Server.Substring(3, 1);
                                         if (Winner_ID == ID.ToString())
                                         {
                                             MessageBox.Show("You are the Winner");
+                                            Close();
+                                        }
+                                        else if (Winner_ID == "N")
+                                        {
+                                            MessageBox.Show("No one won the game.");
                                             Close();
                                         }
                                         else
@@ -193,14 +228,33 @@ namespace bombgame
             }
         }
 
-        private void Round_Start(object sender, EventArgs e)
+        #region timer1_set
+        /*
+        private void timer1_Set(object sender, EventArgs e)
         {
             round++;
             LB_round.Text = Round + round.ToString();
             timeleft = 30;
             LB_seconds.Text = "30";
-            /* Timer ±Ò°Ê */
             timer1.Start();
+        }
+        */
+        #endregion
+
+        private void time_Tick(object sender, EventArgs e)
+        {
+            if (countdown > 0)
+            {
+                countdown -= 1;
+                LB_countdown.Text = countdown.ToString();
+            }
+            else
+            {
+                Countdown.Stop();
+                LB_countdown.Text = "0";
+            }
+
+            Refresh();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -214,20 +268,20 @@ namespace bombgame
             {
                 timer1.Stop();
                 LB_seconds.Text = "0";
+                GameStart = false;
             }
+
+            Refresh();
         }
 
-        private void Round_End(object sender, EventArgs e)
+        private void Round_End()
         {
-            foreach(Explode explode in explodes) { explode.Invalidate(); }
+            foreach (Explode explode in explodes) { explode.Invalidate(); }
             explodes.Clear();
             players[ID.ToString()].ClearBomb();
         }
 
-        private void GameUI_Load(object sender, EventArgs e)
-        {
 
-        }
     }
 }
 

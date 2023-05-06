@@ -50,6 +50,7 @@ namespace bombgame
             player4_null = new PictureBox();
             player3_null = new PictureBox();
             player2_null = new PictureBox();
+            LB_countdown = new Label();
             ((System.ComponentModel.ISupportInitialize)player1_sculpture).BeginInit();
             ((System.ComponentModel.ISupportInitialize)player4_sculpture).BeginInit();
             ((System.ComponentModel.ISupportInitialize)player3_sculpture).BeginInit();
@@ -183,6 +184,7 @@ namespace bombgame
             // timer1
             // 
             timer1.Interval = 1000;
+            timer1.Tick += timer1_Tick;
             // 
             // LB_seconds
             // 
@@ -272,12 +274,24 @@ namespace bombgame
             player2_null.TabStop = false;
             player2_null.Visible = false;
             // 
+            // LB_countdown
+            // 
+            LB_countdown.AutoSize = true;
+            LB_countdown.BackColor = Color.Transparent;
+            LB_countdown.Font = new Font("Comic Sans MS", 48F, FontStyle.Bold, GraphicsUnit.Point);
+            LB_countdown.Location = new Point(592, 381);
+            LB_countdown.Name = "LB_countdown";
+            LB_countdown.Size = new Size(153, 178);
+            LB_countdown.TabIndex = 178;
+            LB_countdown.Text = "0";
+            // 
             // GameUI
             // 
             AutoScaleDimensions = new SizeF(14F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1564, 1052);
+            Controls.Add(LB_countdown);
             Controls.Add(player2_null);
             Controls.Add(player3_null);
             Controls.Add(player4_null);
@@ -332,6 +346,7 @@ namespace bombgame
         private PictureBox player4_null;
         private PictureBox timer;
         private System.Windows.Forms.Timer timer1;
+        private Label LB_countdown;
     }
 
 }
