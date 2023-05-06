@@ -313,7 +313,6 @@ namespace bombgame
             Margin = new Padding(6);
             Name = "GameUI";
             Text = "Bomb Game";
-            Load += GameUI_Load;
             ((System.ComponentModel.ISupportInitialize)player1_sculpture).EndInit();
             ((System.ComponentModel.ISupportInitialize)player4_sculpture).EndInit();
             ((System.ComponentModel.ISupportInitialize)player3_sculpture).EndInit();

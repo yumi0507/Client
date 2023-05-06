@@ -44,13 +44,9 @@ namespace bombgame
             Thread thread = new Thread(ClientHandled_For_Game);
             thread.IsBackground = true;
             thread.Start(connect.tcpClient);
+            players[user].connect.SenttoServer("OP");
 
             this.KeyPreview = true;
-
-        }
-
-        private void GameUI_Load(object sender, EventArgs e)
-        {
 
         }
 
@@ -127,7 +123,8 @@ namespace bombgame
                                             player4_null.Visible = true;
                                         }
                                         GameStart = true;
-                                        round++;
+                                        string str = Message_From_Server.Substring(2, 1);
+                                        round = Convert.ToInt32(str);
                                         LB_round.Text = Round + round.ToString();
                                         countdown = 3;
                                         Countdown.Start();

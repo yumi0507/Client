@@ -101,14 +101,6 @@ namespace bombgame
             }
         }
 
-        private void btn_GameStart_Click(object sender, EventArgs e)
-        {
-            GameUI gameUI = new GameUI(this);
-            gameUI.Show();
-            ClientHandler = null;
-            //this.Close();
-        }
-
         private void btn_Connect_Click(object sender, EventArgs e)
         {
             tcpClient.Connect(IPAddress.Parse(txbIPAddress.Text), int.Parse(tbx_PORT.Text));
@@ -121,11 +113,22 @@ namespace bombgame
                 ClientHandler = new Thread(ClientHandle);
                 ClientHandler.IsBackground = true;
                 ClientHandler.Start(tcpClient);
+                btn_GameStart.Enabled = true;
+                btn_Connect.Enabled = false;
             }
             else
             {
                 ADD_TO_LOG("Fail to Connect");
             }
         }
+
+        private void btn_GameStart_Click(object sender, EventArgs e)
+        {
+            GameUI gameUI = new GameUI(this);
+            gameUI.Show();
+            ClientHandler = null;
+            this.Close();
+        }
+
     }
 }
