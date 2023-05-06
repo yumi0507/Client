@@ -46,6 +46,7 @@ namespace bombgame
             thread.Start(connect.tcpClient);
             players[user].connect.SenttoServer("OP");
 
+            this.BackgroundImageLayout = ImageLayout.Stretch;
             this.KeyPreview = true;
 
         }
@@ -117,30 +118,30 @@ namespace bombgame
                             {
                                 case "GS":
                                     {
-                                        if (players.Count < 4)
+                                        if (players.Count > 2)
                                         {
-                                            if (players.Count == 2) { player3_null.Visible = true; }
-                                            player4_null.Visible = true;
+                                            if (players.Count == 4)
+                                                Invoke(new MethodInvoker(() => { player4_null.Visible = true; }));
+                                            Invoke(new MethodInvoker(() => { player3_null.Visible = true; }));
                                         }
                                         GameStart = true;
                                         string str = Message_From_Server.Substring(2, 1);
                                         round = Convert.ToInt32(str);
-                                        LB_round.Text = Round + round.ToString();
+                                        Invoke(new MethodInvoker(() => { LB_round.Text = Round + round.ToString(); }));
                                         countdown = 3;
+                                        Invoke(new MethodInvoker(() => { LB_countdown.Text = "3"; }));
                                         Countdown.Start();
-                                        if (countdown == 0)
-                                        {
-                                            timeleft = 30;
-                                            LB_seconds.Text = "30";
-                                            /* Timer ±Ò°Ê */
-                                            timer1.Start();
-                                        }
                                     }
                                     break;
                                 case "NP":
                                     {
-                                        string Player_ID = Message_From_Server.Substring(3, 1);
+                                        string Player_ID = Message_From_Server.Substring(2, 1);
+                                        string X = Message_From_Server.Substring(3, 1);
+                                        string Y = Message_From_Server.Substring(4, 1);
+                                        int x = Convert.ToInt32(X);
+                                        int y = Convert.ToInt32(Y);
                                         players.Add(Player_ID, new player(Player_ID));
+                                        players[Player_ID].GameSet(x,y);
                                     }
                                     break;
                                 case "BS":
@@ -170,16 +171,16 @@ namespace bombgame
                                             switch (Out_Player_ID)
                                             {
                                                 case 1:
-                                                    player1_null.Visible = true;
+                                                    Invoke(new MethodInvoker(() => { player1_null.Visible = true; }));
                                                     break;
                                                 case 2:
-                                                    player2_null.Visible = true;
+                                                    Invoke(new MethodInvoker(() => { player2_null.Visible = true; }));
                                                     break;
                                                 case 3:
-                                                    player3_null.Visible = true;
+                                                    Invoke(new MethodInvoker(() => { player3_null.Visible = true; }));
                                                     break;
                                                 case 4:
-                                                    player4_null.Visible = true;
+                                                    Invoke(new MethodInvoker(() => { player4_null.Visible = true; }));
                                                     break;
                                             }
                                             players.Remove(Player_ID);
@@ -244,11 +245,16 @@ namespace bombgame
             {
                 countdown -= 1;
                 LB_countdown.Text = countdown.ToString();
+
             }
             else
             {
                 Countdown.Stop();
-                LB_countdown.Text = "0";
+                Invoke(new MethodInvoker(() => { LB_countdown.Text = "0"; }));
+                Invoke(new MethodInvoker(() => { LB_countdown.Visible = false; }));
+                timeleft = 30;
+                Invoke(new MethodInvoker(() => { LB_seconds.Text = "30"; }));
+                timer1.Start();
             }
 
             Refresh();
@@ -258,13 +264,13 @@ namespace bombgame
         {
             if (timeleft > 0)
             {
-                timeleft = timeleft - 1;
+                timeleft -= 1;
                 LB_seconds.Text = timeleft.ToString();
             }
             else
             {
                 timer1.Stop();
-                LB_seconds.Text = "0";
+                Invoke(new MethodInvoker(() => { LB_seconds.Text = "0"; }));
                 GameStart = false;
             }
 
@@ -273,7 +279,10 @@ namespace bombgame
 
         private void Round_End()
         {
-            foreach (Explode explode in explodes) { explode.Invalidate(); }
+            foreach (Explode explode in explodes)
+            {
+                Invoke(new MethodInvoker(() => { explode.Invalidate(); }));
+            }
             explodes.Clear();
             players[ID.ToString()].ClearBomb();
         }

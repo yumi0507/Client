@@ -113,8 +113,8 @@ namespace bombgame
                 ClientHandler = new Thread(ClientHandle);
                 ClientHandler.IsBackground = true;
                 ClientHandler.Start(tcpClient);
-                btn_GameStart.Enabled = true;
-                btn_Connect.Enabled = false;
+                Invoke(new MethodInvoker(() => { btn_GameStart.Enabled = true; }));
+                Invoke(new MethodInvoker(() => { btn_Connect.Enabled = false; }));
             }
             else
             {
@@ -127,7 +127,7 @@ namespace bombgame
             GameUI gameUI = new GameUI(this);
             gameUI.Show();
             ClientHandler = null;
-            btn_GameStart.Enabled = false;
+            Invoke(new MethodInvoker(() => { btn_GameStart.Enabled = false; }));
         }
 
     }

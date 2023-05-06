@@ -119,7 +119,7 @@ namespace bombgame
             LB_round.Name = "LB_round";
             LB_round.Size = new Size(256, 62);
             LB_round.TabIndex = 63;
-            LB_round.Text = "Round 01";
+            LB_round.Text = "Round";
             // 
             // LB_Player01
             // 
@@ -246,7 +246,6 @@ namespace bombgame
             player4_null.SizeMode = PictureBoxSizeMode.StretchImage;
             player4_null.TabIndex = 175;
             player4_null.TabStop = false;
-            player4_null.Visible = false;
             // 
             // player3_null
             // 
@@ -259,7 +258,6 @@ namespace bombgame
             player3_null.SizeMode = PictureBoxSizeMode.StretchImage;
             player3_null.TabIndex = 176;
             player3_null.TabStop = false;
-            player3_null.Visible = false;
             // 
             // player2_null
             // 
@@ -290,6 +288,7 @@ namespace bombgame
             AutoScaleDimensions = new SizeF(14F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1564, 1052);
             Controls.Add(LB_countdown);
             Controls.Add(player2_null);
@@ -309,6 +308,7 @@ namespace bombgame
             Controls.Add(player4_sculpture);
             Controls.Add(player1_sculpture);
             Controls.Add(LB_round);
+            DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(6);
             Name = "GameUI";

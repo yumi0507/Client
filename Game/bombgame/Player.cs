@@ -84,7 +84,7 @@ namespace bombgame.Player
             this.Left = Row[y];
             this.Top = Col[x];
             // = new Point(Row[y], Col[x]);
-            this.Visible = true;
+            Invoke(new MethodInvoker(() => { this.Visible = true; }));
         }
 
         public void SetBomb()
@@ -96,7 +96,10 @@ namespace bombgame.Player
 
         public void ClearBomb()
         {
-            foreach(Bomb bomb in bomb_onTile) { bomb.Invalidate(); }
+            foreach(Bomb bomb in bomb_onTile) 
+            { 
+                Invoke(new MethodInvoker(() => { bomb.Invalidate(); })); 
+            }
             bomb_onTile.Clear();
             for (int i = 0; i < 6; i++)
             {
@@ -109,25 +112,25 @@ namespace bombgame.Player
         public void MoveLeft()
         {
             pos_y--;
-            this.Left -= 84;
+            Invoke(new MethodInvoker(() => { this.Left -= 84; }));
         }
 
         public void MoveRight()
         {
             pos_y++;
-            this.Left += 84;
+            Invoke(new MethodInvoker(() => { this.Left += 84; }));
         }
 
         public void MoveUp()
         {
             pos_x--;
-            this.Top -= 85;
+            Invoke(new MethodInvoker(() => { this.Top -= 85; }));
         }
 
         public void MoveDown() 
         {
             pos_x++;
-            this.Top += 85;
+            Invoke(new MethodInvoker(() => { this.Top += 85; }));
         }
         
     }
