@@ -42,25 +42,26 @@ namespace bombgame
             label3 = new Label();
             label4 = new Label();
             pictureBox83 = new PictureBox();
+            label9 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox83).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Cooper Black", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(637, 9);
+            label1.Font = new Font("Cooper Black", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(532, 10);
             label1.Name = "label1";
-            label1.Size = new Size(153, 31);
+            label1.Size = new Size(119, 31);
             label1.TabIndex = 63;
-            label1.Text = "Round 01";
+            label1.Text = "Round 1";
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(565, 300);
+            label5.Location = new Point(565, 309);
             label5.Name = "label5";
             label5.Size = new Size(82, 19);
             label5.TabIndex = 76;
@@ -93,7 +94,7 @@ namespace bombgame
             label8.AutoSize = true;
             label8.BackColor = Color.Transparent;
             label8.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(663, 300);
+            label8.Location = new Point(663, 309);
             label8.Name = "label8";
             label8.Size = new Size(82, 19);
             label8.TabIndex = 79;
@@ -103,7 +104,7 @@ namespace bombgame
             // 
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Cooper Black", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(551, 141);
+            label2.Location = new Point(558, 164);
             label2.Name = "label2";
             label2.Size = new Size(131, 43);
             label2.TabIndex = 80;
@@ -119,7 +120,7 @@ namespace bombgame
             label3.AutoSize = true;
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Cooper Black", 27.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(672, 72);
+            label3.Location = new Point(671, 87);
             label3.Name = "label3";
             label3.Size = new Size(62, 42);
             label3.TabIndex = 85;
@@ -130,7 +131,7 @@ namespace bombgame
             label4.AutoSize = true;
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Cooper Black", 27.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(684, 139);
+            label4.Location = new Point(681, 159);
             label4.Name = "label4";
             label4.Size = new Size(40, 42);
             label4.TabIndex = 86;
@@ -140,12 +141,23 @@ namespace bombgame
             // 
             pictureBox83.BackColor = Color.Transparent;
             pictureBox83.Image = (Image)resources.GetObject("pictureBox83.Image");
-            pictureBox83.Location = new Point(570, 47);
+            pictureBox83.Location = new Point(578, 66);
             pictureBox83.Name = "pictureBox83";
-            pictureBox83.Size = new Size(85, 84);
+            pictureBox83.Size = new Size(85, 82);
             pictureBox83.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox83.TabIndex = 174;
             pictureBox83.TabStop = false;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.BackColor = Color.Transparent;
+            label9.Font = new Font("Cooper Black", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.Location = new Point(652, 10);
+            label9.Name = "label9";
+            label9.Size = new Size(126, 27);
+            label9.TabIndex = 175;
+            label9.Text = "Player 01";
             // 
             // GameUI
             // 
@@ -153,6 +165,7 @@ namespace bombgame
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(782, 526);
+            Controls.Add(label9);
             Controls.Add(label3);
             Controls.Add(pictureBox83);
             Controls.Add(label6);
@@ -181,6 +194,7 @@ namespace bombgame
         private Label label3;
         private Label label4;
         private PictureBox pictureBox83;
+        private Label label9;
     }
 
 }
