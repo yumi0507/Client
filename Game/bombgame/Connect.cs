@@ -24,7 +24,7 @@ namespace bombgame
         {
             InitializeComponent();
             tcpClient = new TcpClient();
-            txbIPAddress.Text = "192.168.0.11";
+            txbIPAddress.Text = "";
             tbx_PORT.Text = "10000";
         }
 

@@ -72,7 +72,9 @@ namespace bombgame.Player
                     this.Image = Resources.alienGreen_stand;
                     break;
             }
-            this.Visible = false;
+            this.Visible = true;
+            this.Top = 0;
+            this.Left = 0;
         }
 
         public int ID { get { return int.Parse(id); } }
@@ -81,11 +83,14 @@ namespace bombgame.Player
         public void GameSet(int x, int y)
         {
             pos_x = x;
-            pos_y = y;
-            this.Left = Row[y];
-            this.Top = Col[x];
+            pos_y = y;            
             // = new Point(Row[y], Col[x]);
-            Invoke(new MethodInvoker(() => { this.Visible = true; }));
+            Invoke(new MethodInvoker(() => 
+            { 
+                this.Left = Row[y];
+                this.Top = Col[x];
+                this.Visible = true; 
+            }));
         }
 
         public void SetBomb()

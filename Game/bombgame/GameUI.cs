@@ -25,7 +25,6 @@ namespace bombgame
         Dictionary<string, player> players;
         List<Explode> explodes;
         bool GameStart = false;
-        System.Timers.Timer Countdown;
 
 
         public GameUI(Connect form)
@@ -43,13 +42,13 @@ namespace bombgame
             players.Add(connect.player.ID.ToString(), connect.player);
             show_player(ID);
             explodes = new List<Explode>();
-            Countdown = new System.Timers.Timer();
-            Countdown.Interval = 1000;
 
             Thread thread = new Thread(ClientHandled_For_Game);
             thread.IsBackground = true;
             thread.Start(connect.tcpClient);
             //players[user].connect.SenttoServer("OP");
+            Thread GameStartTimer = new Thread(GameStartCountdown);
+            Thread Timer = new Thread(Countdown);
 
             this.BackgroundImageLayout = ImageLayout.Stretch;
             this.KeyPreview = true;
@@ -125,13 +124,16 @@ namespace bombgame
                             {
                                 case "GS":
                                     {
-                                        GameStart = true;
                                         string str = Message_From_Server.Substring(2, 1);
                                         round = Convert.ToInt32(str);
+                                        foreach (KeyValuePair<string, player> player in players)
+                                        {
+                                            show_player(int.Parse(player.Key));
+                                            player.Value.Visible = true;
+                                        }
                                         Invoke(new MethodInvoker(() => { LB_round.Text = Round + round.ToString(); }));
-                                        countdown = 3;
-                                        Invoke(new MethodInvoker(() => { LB_countdown.Text = "3"; }));
-                                        Countdown.Start();
+                                        GameStartCountdown();
+                                        Countdown();
                                     }
                                     break;
                                 case "NP":
@@ -141,7 +143,7 @@ namespace bombgame
                                         {
                                             players.Add(NewPlayerID, new player(NewPlayerID));
                                         }
-                                        catch(Exception e)
+                                        catch (Exception e)
                                         {
                                             MessageBox.Show(e.Message);
                                         }
@@ -153,8 +155,8 @@ namespace bombgame
                                         string Player_ID = Message_From_Server.Substring(2, 1);
                                         string X = Message_From_Server.Substring(3, 1);
                                         string Y = Message_From_Server.Substring(4, 1);
-                                        int x = Convert.ToInt32(X);
-                                        int y = Convert.ToInt32(Y);
+                                        int x = 1;
+                                        int y = 1;
                                         players[Player_ID].GameSet(x, y);
                                     }
                                     break;
@@ -239,57 +241,28 @@ namespace bombgame
                 }
             }
         }
-
-        #region timer1_set
-        /*
-        private void timer1_Set(object sender, EventArgs e)
+        public void GameStartCountdown()
         {
-            round++;
-            LB_round.Text = Round + round.ToString();
-            timeleft = 30;
-            LB_seconds.Text = "30";
-            timer1.Start();
-        }
-        */
-        #endregion
-
-        private void time_Tick(object sender, EventArgs e)
-        {
-            if (countdown > 0)
+            Invoke(new MethodInvoker(() => { LB_countdown.Visible = true; }));
+            for (int i = 3; i >= 0; i--)
             {
-                countdown -= 1;
-                LB_countdown.Text = countdown.ToString();
-
+                Thread.Sleep(1000);
+                Invoke(new MethodInvoker(() => { LB_countdown.Text = i.ToString(); }));
             }
-            else
-            {
-                Countdown.Stop();
-                Invoke(new MethodInvoker(() => { LB_countdown.Text = "0"; }));
-                Invoke(new MethodInvoker(() => { LB_countdown.Visible = false; }));
-                timeleft = 30;
-                Invoke(new MethodInvoker(() => { LB_seconds.Text = "30"; }));
-                timer1.Start();
-            }
-
-            Refresh();
+            GameStart = true;
+            Invoke(new MethodInvoker(() => { LB_countdown.Visible = false; }));
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        public void Countdown()
         {
-            if (timeleft > 0)
+            for (int i = 30; i >= 0; i--)
             {
-                timeleft -= 1;
-                LB_seconds.Text = timeleft.ToString();
+                Thread.Sleep(1000);
+                Invoke(new MethodInvoker(() => { LB_seconds.Text = i.ToString(); }));
             }
-            else
-            {
-                timer1.Stop();
-                Invoke(new MethodInvoker(() => { LB_seconds.Text = "0"; }));
-                GameStart = false;
-            }
-
-            Refresh();
+            GameStart = false;
         }
+
         public void show_player(int i)
         {
             if (InvokeRequired)
@@ -298,17 +271,13 @@ namespace bombgame
                 return;
             }
             if (i == 1)
-                player1_null.Visible =  false ;
-            else if(i == 2)
-                player2_null.Visible = false ;
-            else if(i == 3)
-            {
-                player3_null.Visible = false ;
-            }
-            else
-            {
-                player4_null.Visible = false ;
-            }
+                player1_null.Visible = false;
+            else if (i == 2)
+                player2_null.Visible = false;
+            else if (i == 3)
+                player3_null.Visible = false;
+            else if (i == 4)
+                player4_null.Visible = false;
         }
         public void notshow_player(int i)
         {
@@ -322,13 +291,9 @@ namespace bombgame
             else if (i == 2)
                 player2_null.Visible = true;
             else if (i == 3)
-            {
                 player3_null.Visible = true;
-            }
-            else
-            {
+            else if (i == 4)
                 player4_null.Visible = true;
-            }
         }
         private void Round_End()
         {
