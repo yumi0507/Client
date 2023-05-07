@@ -31,12 +31,17 @@ namespace bombgame
         public GameUI(Connect form)
         {
             InitializeComponent();
+            player1_null.Visible = true;
+            player2_null.Visible = true;
+            player3_null.Visible = true;
+            player4_null.Visible = true;
             connect = form;
             round = 0;
             ID = connect.player.ID;
             user = ID.ToString();
             players = new Dictionary<string, player>();
             players.Add(connect.player.ID.ToString(), connect.player);
+            show_player(ID);
             explodes = new List<Explode>();
             Countdown = new System.Timers.Timer();
             Countdown.Interval = 1000;
@@ -44,7 +49,7 @@ namespace bombgame
             Thread thread = new Thread(ClientHandled_For_Game);
             thread.IsBackground = true;
             thread.Start(connect.tcpClient);
-            players[user].connect.SenttoServer("OP");
+            //players[user].connect.SenttoServer("OP");
 
             this.BackgroundImageLayout = ImageLayout.Stretch;
             this.KeyPreview = true;
@@ -109,10 +114,12 @@ namespace bombgame
                         int BytesReaded = networkStream.Read(buffer, 0, buffer.Length);
                         if (BytesReaded <= 0)
                         {
+                            MessageBox.Show("Can't read");
                         }
                         else
                         {
                             string Message_From_Server = Encoding.UTF8.GetString(buffer, 0, BytesReaded);
+                            connect.ADD_TO_LOG(Message_From_Server);
                             string Command = Message_From_Server.Substring(0, 2);
                             switch (Command)
                             {
@@ -135,13 +142,26 @@ namespace bombgame
                                     break;
                                 case "NP":
                                     {
+                                        string NewPlayerID = Message_From_Server.Substring(2, 1);
+                                        try
+                                        {
+                                            players.Add(NewPlayerID, new player(NewPlayerID));
+                                        }
+                                        catch(Exception e)
+                                        {
+                                            MessageBox.Show(e.Message);
+                                        }
+                                        show_player(int.Parse(NewPlayerID));
+                                    }
+                                    break;
+                                case "PP":
+                                    {
                                         string Player_ID = Message_From_Server.Substring(2, 1);
                                         string X = Message_From_Server.Substring(3, 1);
                                         string Y = Message_From_Server.Substring(4, 1);
                                         int x = Convert.ToInt32(X);
                                         int y = Convert.ToInt32(Y);
-                                        players.Add(Player_ID, new player(Player_ID));
-                                        players[Player_ID].GameSet(x,y);
+                                        players[Player_ID].GameSet(x, y);
                                     }
                                     break;
                                 case "BS":
@@ -276,7 +296,46 @@ namespace bombgame
 
             Refresh();
         }
-
+        public void show_player(int i)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new Action<int>(show_player), i);
+                return;
+            }
+            if (i == 1)
+                player1_null.Visible =  false ;
+            else if(i == 2)
+                player2_null.Visible = false ;
+            else if(i == 3)
+            {
+                player3_null.Visible = false ;
+            }
+            else
+            {
+                player4_null.Visible = false ;
+            }
+        }
+        public void notshow_player(int i)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new Action<int>(notshow_player), i);
+                return;
+            }
+            if (i == 1)
+                player1_null.Visible = true;
+            else if (i == 2)
+                player2_null.Visible = true;
+            else if (i == 3)
+            {
+                player3_null.Visible = true;
+            }
+            else
+            {
+                player4_null.Visible = true;
+            }
+        }
         private void Round_End()
         {
             foreach (Explode explode in explodes)

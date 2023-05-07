@@ -11,7 +11,7 @@ using bombgame.Properties;
 using System.Web;
 using bombgame.Picture;
 using System.Numerics;
-
+using bombgame;
 namespace bombgame.Player
 {
     public class player : PictureBox
@@ -29,7 +29,7 @@ namespace bombgame.Player
         private int[] Row = new int[6] {10,94,178,262,346,430};
         private int[] Col = new int[6] {16,101,186,271,356,441};
 
-        public player(string ID, TcpClient client)
+        public player(string ID, TcpClient client)//For local client
         {
             tcpClient = client;
             id = ID;
@@ -42,10 +42,11 @@ namespace bombgame.Player
                     bomb_location[i, j] = false;
             }
             bomb_onTile = new List<Bomb>();
+            
             SetImage();
 
         }
-        public player(string ID)
+        public player(string ID)//For not local client
         {
             id = ID; 
             int pos_x = 0;

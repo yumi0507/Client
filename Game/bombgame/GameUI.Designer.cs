@@ -66,10 +66,9 @@ namespace bombgame
             // 
             player1_sculpture.BackColor = Color.Transparent;
             player1_sculpture.Image = (Image)resources.GetObject("player1_sculpture.Image");
-            player1_sculpture.Location = new Point(1120, 416);
-            player1_sculpture.Margin = new Padding(6);
+            player1_sculpture.Location = new Point(560, 208);
             player1_sculpture.Name = "player1_sculpture";
-            player1_sculpture.Size = new Size(182, 178);
+            player1_sculpture.Size = new Size(91, 89);
             player1_sculpture.SizeMode = PictureBoxSizeMode.StretchImage;
             player1_sculpture.TabIndex = 69;
             player1_sculpture.TabStop = false;
@@ -78,10 +77,9 @@ namespace bombgame
             // 
             player4_sculpture.BackColor = Color.Transparent;
             player4_sculpture.Image = (Image)resources.GetObject("player4_sculpture.Image");
-            player4_sculpture.Location = new Point(1314, 670);
-            player4_sculpture.Margin = new Padding(6);
+            player4_sculpture.Location = new Point(657, 335);
             player4_sculpture.Name = "player4_sculpture";
-            player4_sculpture.Size = new Size(182, 178);
+            player4_sculpture.Size = new Size(91, 89);
             player4_sculpture.SizeMode = PictureBoxSizeMode.StretchImage;
             player4_sculpture.TabIndex = 70;
             player4_sculpture.TabStop = false;
@@ -90,10 +88,9 @@ namespace bombgame
             // 
             player3_sculpture.BackColor = Color.Transparent;
             player3_sculpture.Image = (Image)resources.GetObject("player3_sculpture.Image");
-            player3_sculpture.Location = new Point(1120, 670);
-            player3_sculpture.Margin = new Padding(6);
+            player3_sculpture.Location = new Point(560, 335);
             player3_sculpture.Name = "player3_sculpture";
-            player3_sculpture.Size = new Size(182, 178);
+            player3_sculpture.Size = new Size(91, 89);
             player3_sculpture.SizeMode = PictureBoxSizeMode.StretchImage;
             player3_sculpture.TabIndex = 71;
             player3_sculpture.TabStop = false;
@@ -102,10 +99,9 @@ namespace bombgame
             // 
             player2_sculpture.BackColor = Color.Transparent;
             player2_sculpture.Image = (Image)resources.GetObject("player2_sculpture.Image");
-            player2_sculpture.Location = new Point(1314, 416);
-            player2_sculpture.Margin = new Padding(6);
+            player2_sculpture.Location = new Point(657, 208);
             player2_sculpture.Name = "player2_sculpture";
-            player2_sculpture.Size = new Size(182, 178);
+            player2_sculpture.Size = new Size(91, 89);
             player2_sculpture.SizeMode = PictureBoxSizeMode.StretchImage;
             player2_sculpture.TabIndex = 72;
             player2_sculpture.TabStop = false;
@@ -114,10 +110,9 @@ namespace bombgame
             // 
             LB_round.BackColor = Color.Transparent;
             LB_round.Font = new Font("Cooper Black", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            LB_round.Location = new Point(1284, 26);
-            LB_round.Margin = new Padding(6, 0, 6, 0);
+            LB_round.Location = new Point(642, 13);
             LB_round.Name = "LB_round";
-            LB_round.Size = new Size(256, 62);
+            LB_round.Size = new Size(128, 31);
             LB_round.TabIndex = 63;
             LB_round.Text = "Round";
             // 
@@ -126,10 +121,9 @@ namespace bombgame
             LB_Player01.AutoSize = true;
             LB_Player01.BackColor = Color.Transparent;
             LB_Player01.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            LB_Player01.Location = new Point(1130, 600);
-            LB_Player01.Margin = new Padding(6, 0, 6, 0);
+            LB_Player01.Location = new Point(565, 300);
             LB_Player01.Name = "LB_Player01";
-            LB_Player01.Size = new Size(158, 36);
+            LB_Player01.Size = new Size(82, 19);
             LB_Player01.TabIndex = 76;
             LB_Player01.Text = "Player01";
             // 
@@ -138,10 +132,9 @@ namespace bombgame
             LB_Player02.AutoSize = true;
             LB_Player02.BackColor = Color.Transparent;
             LB_Player02.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            LB_Player02.Location = new Point(1326, 600);
-            LB_Player02.Margin = new Padding(6, 0, 6, 0);
+            LB_Player02.Location = new Point(663, 300);
             LB_Player02.Name = "LB_Player02";
-            LB_Player02.Size = new Size(158, 36);
+            LB_Player02.Size = new Size(82, 19);
             LB_Player02.TabIndex = 79;
             LB_Player02.Text = "Player02";
             // 
@@ -150,10 +143,9 @@ namespace bombgame
             LB_Player03.AutoSize = true;
             LB_Player03.BackColor = Color.Transparent;
             LB_Player03.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            LB_Player03.Location = new Point(1130, 854);
-            LB_Player03.Margin = new Padding(6, 0, 6, 0);
+            LB_Player03.Location = new Point(565, 427);
             LB_Player03.Name = "LB_Player03";
-            LB_Player03.Size = new Size(158, 36);
+            LB_Player03.Size = new Size(82, 19);
             LB_Player03.TabIndex = 78;
             LB_Player03.Text = "Player03";
             // 
@@ -162,10 +154,9 @@ namespace bombgame
             LB_Player04.AutoSize = true;
             LB_Player04.BackColor = Color.Transparent;
             LB_Player04.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            LB_Player04.Location = new Point(1326, 860);
-            LB_Player04.Margin = new Padding(6, 0, 6, 0);
+            LB_Player04.Location = new Point(663, 430);
             LB_Player04.Name = "LB_Player04";
-            LB_Player04.Size = new Size(158, 36);
+            LB_Player04.Size = new Size(82, 19);
             LB_Player04.TabIndex = 77;
             LB_Player04.Text = "Player04";
             // 
@@ -173,10 +164,9 @@ namespace bombgame
             // 
             LB_Remaining_Bombs.BackColor = Color.Transparent;
             LB_Remaining_Bombs.Font = new Font("Cooper Black", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            LB_Remaining_Bombs.Location = new Point(1102, 282);
-            LB_Remaining_Bombs.Margin = new Padding(6, 0, 6, 0);
+            LB_Remaining_Bombs.Location = new Point(551, 141);
             LB_Remaining_Bombs.Name = "LB_Remaining_Bombs";
-            LB_Remaining_Bombs.Size = new Size(262, 86);
+            LB_Remaining_Bombs.Size = new Size(131, 43);
             LB_Remaining_Bombs.TabIndex = 80;
             LB_Remaining_Bombs.Text = "Remaining \r\nBombs";
             LB_Remaining_Bombs.TextAlign = ContentAlignment.MiddleCenter;
@@ -191,10 +181,9 @@ namespace bombgame
             LB_seconds.AutoSize = true;
             LB_seconds.BackColor = Color.Transparent;
             LB_seconds.Font = new Font("Cooper Black", 27.75F, FontStyle.Regular, GraphicsUnit.Point);
-            LB_seconds.Location = new Point(1344, 144);
-            LB_seconds.Margin = new Padding(6, 0, 6, 0);
+            LB_seconds.Location = new Point(672, 72);
             LB_seconds.Name = "LB_seconds";
-            LB_seconds.Size = new Size(125, 85);
+            LB_seconds.Size = new Size(62, 42);
             LB_seconds.TabIndex = 85;
             LB_seconds.Text = "30";
             // 
@@ -203,10 +192,9 @@ namespace bombgame
             LB_remaining.AutoSize = true;
             LB_remaining.BackColor = Color.Transparent;
             LB_remaining.Font = new Font("Cooper Black", 27.75F, FontStyle.Regular, GraphicsUnit.Point);
-            LB_remaining.Location = new Point(1368, 278);
-            LB_remaining.Margin = new Padding(6, 0, 6, 0);
+            LB_remaining.Location = new Point(684, 139);
             LB_remaining.Name = "LB_remaining";
-            LB_remaining.Size = new Size(81, 85);
+            LB_remaining.Size = new Size(40, 42);
             LB_remaining.TabIndex = 86;
             LB_remaining.Text = "4";
             // 
@@ -214,10 +202,9 @@ namespace bombgame
             // 
             player1_null.BackColor = Color.Transparent;
             player1_null.Image = (Image)resources.GetObject("player1_null.Image");
-            player1_null.Location = new Point(1150, 446);
-            player1_null.Margin = new Padding(6);
+            player1_null.Location = new Point(575, 223);
             player1_null.Name = "player1_null";
-            player1_null.Size = new Size(124, 122);
+            player1_null.Size = new Size(62, 61);
             player1_null.SizeMode = PictureBoxSizeMode.StretchImage;
             player1_null.TabIndex = 97;
             player1_null.TabStop = false;
@@ -227,10 +214,9 @@ namespace bombgame
             // 
             timer.BackColor = Color.Transparent;
             timer.Image = (Image)resources.GetObject("timer.Image");
-            timer.Location = new Point(1140, 94);
-            timer.Margin = new Padding(6);
+            timer.Location = new Point(570, 47);
             timer.Name = "timer";
-            timer.Size = new Size(170, 168);
+            timer.Size = new Size(85, 84);
             timer.SizeMode = PictureBoxSizeMode.Zoom;
             timer.TabIndex = 174;
             timer.TabStop = false;
@@ -239,10 +225,9 @@ namespace bombgame
             // 
             player4_null.BackColor = Color.Transparent;
             player4_null.Image = (Image)resources.GetObject("player4_null.Image");
-            player4_null.Location = new Point(1344, 700);
-            player4_null.Margin = new Padding(6);
+            player4_null.Location = new Point(672, 350);
             player4_null.Name = "player4_null";
-            player4_null.Size = new Size(124, 122);
+            player4_null.Size = new Size(62, 61);
             player4_null.SizeMode = PictureBoxSizeMode.StretchImage;
             player4_null.TabIndex = 175;
             player4_null.TabStop = false;
@@ -251,10 +236,9 @@ namespace bombgame
             // 
             player3_null.BackColor = Color.Transparent;
             player3_null.Image = (Image)resources.GetObject("player3_null.Image");
-            player3_null.Location = new Point(1150, 700);
-            player3_null.Margin = new Padding(6);
+            player3_null.Location = new Point(575, 350);
             player3_null.Name = "player3_null";
-            player3_null.Size = new Size(124, 122);
+            player3_null.Size = new Size(62, 61);
             player3_null.SizeMode = PictureBoxSizeMode.StretchImage;
             player3_null.TabIndex = 176;
             player3_null.TabStop = false;
@@ -263,10 +247,9 @@ namespace bombgame
             // 
             player2_null.BackColor = Color.Transparent;
             player2_null.Image = (Image)resources.GetObject("player2_null.Image");
-            player2_null.Location = new Point(1344, 446);
-            player2_null.Margin = new Padding(6);
+            player2_null.Location = new Point(672, 223);
             player2_null.Name = "player2_null";
-            player2_null.Size = new Size(124, 122);
+            player2_null.Size = new Size(62, 61);
             player2_null.SizeMode = PictureBoxSizeMode.StretchImage;
             player2_null.TabIndex = 177;
             player2_null.TabStop = false;
@@ -277,19 +260,20 @@ namespace bombgame
             LB_countdown.AutoSize = true;
             LB_countdown.BackColor = Color.Transparent;
             LB_countdown.Font = new Font("Comic Sans MS", 48F, FontStyle.Bold, GraphicsUnit.Point);
-            LB_countdown.Location = new Point(592, 381);
+            LB_countdown.Location = new Point(213, 229);
+            LB_countdown.Margin = new Padding(2, 0, 2, 0);
             LB_countdown.Name = "LB_countdown";
-            LB_countdown.Size = new Size(153, 178);
+            LB_countdown.Size = new Size(77, 90);
             LB_countdown.TabIndex = 178;
             LB_countdown.Text = "0";
             // 
             // GameUI
             // 
-            AutoScaleDimensions = new SizeF(14F, 30F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1564, 1052);
+            ClientSize = new Size(782, 526);
             Controls.Add(LB_countdown);
             Controls.Add(player2_null);
             Controls.Add(player3_null);
@@ -310,7 +294,6 @@ namespace bombgame
             Controls.Add(LB_round);
             DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(6);
             Name = "GameUI";
             Text = "Bomb Game";
             ((System.ComponentModel.ISupportInitialize)player1_sculpture).EndInit();

@@ -24,6 +24,8 @@ namespace bombgame
         {
             InitializeComponent();
             tcpClient = new TcpClient();
+            txbIPAddress.Text = "192.168.0.11";
+            tbx_PORT.Text = "10000";
         }
 
         public string ReceiveFromServer(TcpClient client)
@@ -125,6 +127,7 @@ namespace bombgame
         private void btn_GameStart_Click(object sender, EventArgs e)
         {
             GameUI gameUI = new GameUI(this);
+            connect.SenttoServer("OP");
             gameUI.Show();
             ClientHandler = null;
             Invoke(new MethodInvoker(() => { btn_GameStart.Enabled = false; }));
