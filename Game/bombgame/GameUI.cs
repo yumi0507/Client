@@ -125,12 +125,6 @@ namespace bombgame
                             {
                                 case "GS":
                                     {
-                                        if (players.Count > 2)
-                                        {
-                                            if (players.Count == 4)
-                                                Invoke(new MethodInvoker(() => { player4_null.Visible = true; }));
-                                            Invoke(new MethodInvoker(() => { player3_null.Visible = true; }));
-                                        }
                                         GameStart = true;
                                         string str = Message_From_Server.Substring(2, 1);
                                         round = Convert.ToInt32(str);
