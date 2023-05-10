@@ -130,6 +130,7 @@ namespace bombgame
                                         {
                                             show_player(int.Parse(player.Key));
                                             player.Value.Visible = true;
+                                            Invoke(new MethodInvoker(() => { this.Controls.Add(player.Value); }));
                                         }
                                         Invoke(new MethodInvoker(() => { LB_round.Text = Round + round.ToString(); }));
                                         GameStartCountdown();

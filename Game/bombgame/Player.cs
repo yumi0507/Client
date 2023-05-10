@@ -42,7 +42,6 @@ namespace bombgame.Player
                     bomb_location[i, j] = false;
             }
             bomb_onTile = new List<Bomb>();
-            
             SetImage();
 
         }
@@ -53,7 +52,7 @@ namespace bombgame.Player
             int pos_y = 0;
             SetImage();
         }
-
+        
         public void SetImage()
         {
             int Player_ID = int.Parse(id);
@@ -72,10 +71,13 @@ namespace bombgame.Player
                     this.Image = Resources.alienGreen_stand;
                     break;
             }
-            this.Visible = true;
+            this.Visible = false;
+            this.BackColor = Color.Transparent;
             this.Top = 0;
             this.Left = 0;
+            this.Size = new Size(133, 184);
         }
+        
 
         public int ID { get { return int.Parse(id); } }
         public int bomb { get { return bomb_hold; } }
@@ -97,6 +99,7 @@ namespace bombgame.Player
         {
             bomb_location[pos_x, pos_y] = true;
             bomb_onTile.Add(new Bomb(pos_y, pos_x));
+            this.Controls.Add(bomb_onTile[4-bomb_hold]);
             bomb_hold--;
         }
 
